@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+body {
+  background-color: rgb(248, 240, 240);
+  font-family: Roboto Slab;
+  display: grid;
+  grid-template-columns: repeat (10, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#quote{
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: three;
+  margin-left: 10%;
+  margin-top: 10%;
+  font-size: 2vw;
+}
+
+#login{
+  grid-column-start: 7;
+  grid-column-end: 9;
+  grid-row-start: 4;
+  font-size: 2vw;
+}
+
+input {
+  width: 12vw;
+  height: 1.5vw;
+  font-size: 1.3vw;
+}
+
+#loginButton {
+    width: 12.7vw;
+  height: 1.8vw
+}
+
+#signupButton {
+  font-size: 1.5vw;
+  margin-top: 5%;
+ 
+}
