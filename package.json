@@ -2,19 +2,25 @@
   "name": "weight-tracker",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
+  "proxy": "http://localhost:3000/",
   "scripts": {
-    "start": "cross-env NODE_ENV=development -D server/server.js",
-    "build": "cross-env NODE_ENV=development webpack --config webpack.config.js",
-    "dev": "cross-env NODE_ENV=development concurrently  \"nodemon server/server.js\" \"webpack-dev-server --open\""
+    "dev": "webpack-dev-server --mode development --open --hot",
+    "start": "concurrently \"cross-env NODE_ENV=development nodemon server/server.js\" \"cross-env NODE_ENV=development webpack server --open\"",
+    "build": "NODE_ENV=production webpack",
+    "server": "NODE_ENV=production nodemon server/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "concurrently": "^8.0.1",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
+    "express": "^4.18.2",
     "nodemon": "^2.0.22",
+    "pg": "^8.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
