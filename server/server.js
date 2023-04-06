@@ -14,14 +14,30 @@ app.use(cors());
 app.use('/src', express.static(path.resolve(__dirname, './src')));
 
 
+// app.use('/', (req, res) => {
+//   res.send({
+//     token: 'test123'
+//   });
+// });
+
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../src/index.html'));
 });
 
 
+app.get('/history', userController.getAllHistory,
+  (req, res) => {
+    return res.status(200).json(res.locals.history)
+ })
+
 app.post('/history', userController.saveHistory,
   (req, res) => {
     return res.status(200).json(res.locals.history)
+  });
+
+app.delete('/delete', userController.deleteHistory,
+  (req, res) => {
+    return res.status(200).json('remoed')
   });
    
 

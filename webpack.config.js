@@ -23,7 +23,7 @@ module.exports = {
 				options: { presets: ["@babel/env", "@babel/preset-react"] },
 			},
 			{
-				test: /\.s?css$/,
+				test: /\.css$/i,
 				use: ["style-loader", "css-loader"],
 			},
 			{
@@ -39,9 +39,9 @@ module.exports = {
 		},
 		port: 8080,
 		proxy: {
-			"/": "http://localhost:3000",
+			"/": "http://[::1]:3000",
 		},
-		historyApiFallback: true,
+		// historyApiFallback: true,
 	},
 };
 

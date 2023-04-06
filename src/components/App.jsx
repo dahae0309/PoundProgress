@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Homepage from './Homepage.jsx';
+import Homepage from './Homepage2.jsx';
 
 const App = () => {
   return (
@@ -8,10 +8,3 @@ const App = () => {
 }
 
 export default App;
-
-
-  // return <div>
-  //     <div id="quote">
-  //   <h1>Don’t compare yourself to others. Compare yourself to the person from yesterday.</h1>
-  // </div>
-  //   hello</div>;
