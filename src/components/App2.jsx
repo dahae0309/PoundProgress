@@ -5,12 +5,9 @@ import Homepage from './Homepage2.jsx';
 import Login from './Login.jsx';
 
 function App() {
-  const [token, setToken] = useState();
-
-
+ 
   return (
     <div className="wrapper">
-      <h1>Application</h1>
       <BrowserRouter>
         <Switch>
           <Route path="/">

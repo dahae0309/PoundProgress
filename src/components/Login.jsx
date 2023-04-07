@@ -1,46 +1,48 @@
 import React, { useState } from 'react';
 
-async function loginUser(credentials) {
- return fetch('http://localhost:8080/login', {
+
+const Login = ()=> {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const loginUser = ()=> {
+  fetch('/login', {
    method: 'POST',
-   headers: {
-     'Content-Type': 'application/json'
-   },
-   body: JSON.stringify(credentials)
+  //  mode:'no-cors',
+  headers: { 'Content-Type': 'application/json' },
+   body: JSON.stringify({username, password})
  })
-   .then(data => data.json())
-}
+  .then(data => data.json())
+   .then(data => console.log("login data:", data))
+  .catch(err=>console.log('error in login', err))
+}  
 
-export default function Login() {
-  const [username, setUserName] = useState();
-  const [password, setPassword] = useState();
-
-  const handleSubmit = async e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    const token = await loginUser({
-      username,
-      password
-    });
+    console.log('hello???')
+    loginUser();
   }
 
   return(
     <div className="login-wrapper">
       <h1>Please Log In</h1>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}> */}
         <label>
           <p>Username</p>
-          <input type="text" onChange={e => setUserName(e.target.value)} />
+          <input type="text" onChange={e => setUsername(e.target.value)} />
         </label>
         <label>
           <p>Password</p>
           <input type="password" onChange={e => setPassword(e.target.value)} />
         </label>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={handleSubmit}>Submit</button>
         </div>
-      </form>
+      {/* </form> */}
     </div>
   )
 }
 
 
+
+export default Login

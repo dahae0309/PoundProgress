@@ -38,8 +38,11 @@ module.exports = {
 			publicPath: path.resolve(__dirname, "/dist"),
 		},
 		port: 8080,
-		proxy: {
-			"/": "http://[::1]:3000",
+		proxy:
+			// "http://localhost:3000"
+		{
+			"/**": "http://localhost:3000/",
+			"/login":"http://localhost:3000/",
 		},
 		// historyApiFallback: true,
 	},

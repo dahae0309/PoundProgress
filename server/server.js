@@ -1,3 +1,4 @@
+const { createProxyMiddleware } = require("http-proxy-middleware");
 const express = require('express');
 const app = express();
 const cors = require('cors')
@@ -13,22 +14,21 @@ app.use(cors());
 
 app.use('/src', express.static(path.resolve(__dirname, './src')));
 
-
-// app.use('/', (req, res) => {
-//   res.send({
-//     token: 'test123'
-//   });
-// });
-
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../src/index.html'));
 });
 
-
 app.get('/history', userController.getAllHistory,
   (req, res) => {
     return res.status(200).json(res.locals.history)
- })
+  })
+
+// app.post('/login', userController.logIn,
+//   (req, res) => {
+//     return res.status(200)
+//   });
+
+
 
 app.post('/history', userController.saveHistory,
   (req, res) => {

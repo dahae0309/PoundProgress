@@ -4,7 +4,15 @@ const db = require('../models/userModel')
 const userController = {};
 
 userController.logIn = (req, res, next) => {
-  const {username, password} = req.body
+  const { username, password } = req.body
+  const text = "SELECT * FROM userHistory WHERE username = ($1)"
+  db.query(text, [username])
+    .then(data => {
+      console.log('data from DB:', data)
+      //if password matches
+        //redirect to hompage
+  })
+   
  }
 
 console.log(req.body)
