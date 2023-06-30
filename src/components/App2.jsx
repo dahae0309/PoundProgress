@@ -1,24 +1,38 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+//import createBrowserRouter from 'react-router-dom'
+import Dashboard from './Dashboard';
+import { Login } from './Login';
+import { Signup } from './Signup';
+import { userContext } from '../context';
 
-import Homepage from './Homepage2.jsx';
-import Login from './Login.jsx';
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+      <Route path="/" element={ <Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/signup" element={ <Signup />} />
+    </Route>
+  )
+)
 
-function App() {
- 
+const App = ()=> {
+  const [ userId, setUserId ] = useState(null); 
   return (
-    <div className="wrapper">
-      <BrowserRouter>
-        <Switch>
-          <Route path="/">
-            <Login />
-          </Route>
-          <Route path="/homepage">
-            <Homepage />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </div>
+    // <div className="wrapper">
+    //   <BrowserRouter>
+    //     <Routes>
+    //       <Route path="/" element={ <Login />}/>
+    //       <Route path="/homepage" element={ <Homepage />} />
+    //     </Routes>
+    //   </BrowserRouter>
+
+    // </div>
+    <userContext.Provider value={{ userId, setUserId }}>
+
+          <RouterProvider router={router} />
+
+    </userContext.Provider>
   );
 }
 

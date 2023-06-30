@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Homepage from './Homepage2.jsx';
+import Dashboard from './Dashboard.jsx';
 
 const App = () => {
   return (
-    <Homepage /> 
+    <Dashboard /> 
   )
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from 'react-dom';
 import ReactDOM from 'react-dom/client';
-import App from './components/App.jsx';
+import App from './components/App2.jsx';
 // import { Router } 
 
 import './styles.css'

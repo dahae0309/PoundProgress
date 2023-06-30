@@ -6,6 +6,8 @@ const path = require('path');
 const PORT = 3000;
 
 const userController = require('./controller/userController');
+const loginController = require('./controller/loginController');
+const signupController = require('./controller/signupController');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,11 +20,25 @@ app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../src/index.html'));
 });
 
+
+app.post('/login', loginController.verification,
+  (req, res) => {
+    console.log('hi')
+    return res.status(200).json(res.locals)
+    //res.sendFile(path.resolve(__dirname, '../src/components/Homepage2.jsx'))
+  })
+
+app.post('/signup', signupController.signup,
+  (req, res) => {
+    console.log('signed up')
+    return res.status(200).json(res.locals)
+    //res.sendFile(path.resolve(__dirname, '../src/components/Homepage2.jsx'))
+  })
+
 app.get('/history', userController.getAllHistory,
   (req, res) => {
     return res.status(200).json(res.locals.history)
   })
-
 // app.post('/login', userController.logIn,
 //   (req, res) => {
 //     return res.status(200)

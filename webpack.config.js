@@ -7,35 +7,56 @@ const htmlPlugin = new HtmlWebPackPlugin({
 	filename: "./index.html",
 });
 module.exports = {
+	devtool: 'eval-cheap-module-source-map',
 	entry: "./src/index.js",
+  resolve: {
+		extensions: ['.js', '.jsx'],
+		enforceExtension: false,
+  },
 	output: {
 		path: path.join(__dirname, "/dist"),
 		filename: "bundle.js",
+		sourceMapFilename: "[name].js.map"
 	},
 	mode: process.env.NODE_ENV || "development",
-	plugins: [htmlPlugin],
+	// plugins: [htmlPlugin],
+	plugins: [
+    new HtmlWebPackPlugin({
+      title: 'Development',
+      template: './src/index.html'
+    })
+  ],
 	module: {
 		rules: [
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				loader: "babel-loader",
-				options: { presets: ["@babel/env", "@babel/preset-react"] },
+				// loader: "babel-loader",
+				// options: { presets: ["@babel/env", "@babel/preset-react", '@babel/preset-env' ] },
+				use: {
+        	loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
+				// use:['source-map-loader']
 			},
 			{
-				test: /\.css$/i,
+				test: /\.css$/,
 				use: ["style-loader", "css-loader"],
 			},
 			{
 				test: /\.(png|svg|jpg|gif)$/,
 				loader: "file-loader",
-				options: { name: "/static/[name].[ext]" },
+				options: { name: "/assets/[name].[ext]" },
 			},
 		],
 	},
 	devServer: {
 		static: {
-			publicPath: path.resolve(__dirname, "/dist"),
+			// publicPath: path.resolve(__dirname, "/dist"),
+			publicPath: '/dist',
+      directory: path.resolve(__dirname, 'dist'),
 		},
 		port: 8080,
 		proxy:
