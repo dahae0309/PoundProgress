@@ -7,7 +7,7 @@ import pp2 from '../assets/pp2.jpg'
 
 
 export const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { userId, setUserId } = useContext(userContext);
@@ -23,7 +23,8 @@ export const Login = () => {
 
   useEffect(() => {
     //console.log('updated??', userId)
-    if (userId !== null) {
+    if (userId) {
+      console.log("updated userId in Login", userId)
       return navigate("/dashboard");
      }
    })
@@ -63,23 +64,25 @@ export const Login = () => {
 
   return(
     <div>
-    <div className='applicationName'>
+      {/* <div className='applicationName'>
         <h1>Pound
           Progress</h1>
-      </div>
-      <div className='login-container'>
+      </div> */}
+      {/* <div className='login-container'> */}
         {/* <img src={pp} alt=""/> */}
         {/* <img src={pp2} /> */}
-        <img src='../assets/pp2.jpg' className="image" alt="image"/>
+        {/* <img src='../assets/pp2.jpg' className="image" alt="image"/> */}
         {/* <img src={require('../assets/pp2.jpg').default} /> */}
         {/* <img src={require('../assets/pp2.jpg')}></img> */}
-        <div className='login-quote'>
+        {/* <div className='login-quote'>
           <p>“The body achieves what the mind believes.” – Napoleon Hill</p>
-        </div>
+        </div> */}
       
       <div className="login-wrapper">
         <div className='login'>
-          <h1>Please Log In</h1>
+          <div className='login-msg'>
+            <h1>Please Log In</h1>
+          </div>
           {/* <form onSubmit={handleSubmit}> */}
           <label>
             <p>Username</p>
@@ -96,13 +99,13 @@ export const Login = () => {
           </div>
           <br></br>
           {/* </form> */}
-          <div className='newAccount'> Do not have account? {' '} 
+          {/* <div className='newAccount'> Do not have account? {' '} 
             <Link to="/signup" element={ <Signup />}>Sign Up</Link>
-          </div>
+          </div> */}
         </div>
       </div>
       </div>
-      </div>
+  
   )
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 //import createBrowserRouter from 'react-router-dom'
 import Dashboard from './Dashboard';
+import { Welcome } from './Welcome';
 import { Login } from './Login';
 import { Signup } from './Signup';
 import { userContext } from '../context';
@@ -9,7 +10,8 @@ import { userContext } from '../context';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/" element={ <Login />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Welcome />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/signup" element={ <Signup />} />
     </Route>

@@ -5,7 +5,7 @@ import BarChart from './Chart2.jsx'
 import { userContext } from '../context';
 
 
-const Homepage = () => {
+const Dashboard = () => {
   const [inputWeight, setInputWeight] = useState('');
   const [historyData, setHistoryData] = useState();
   const { userId, setUserId } = useContext(userContext);
@@ -86,4 +86,4 @@ const Homepage = () => {
   );
 }
 
-export default Homepage;
+export default Dashboard;

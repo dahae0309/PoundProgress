@@ -6,7 +6,7 @@ import { userContext } from '../context';
 export const Signup = () => {
   //console.log("hello??????");
  
-  //const { userId } = useContext(userContext);
+  const { userId, setUserId } = useContext(userContext);
   
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -21,7 +21,8 @@ export const Signup = () => {
     console.log('nextPage??', nextPage)
     if (nextPage === true) {
       console.log("ready to move on to homepage")
-      return navigate("/homepage");
+      console.log('userId in signup page',userId)
+      return navigate("/dashboard");
     }
   });
 
@@ -35,17 +36,17 @@ export const Signup = () => {
   }
   
   const signupAction = () => {
-   fetch('/signup', {
-   method: 'POST',
-   headers: { 'Content-Type': 'application/json' },
-   body: JSON.stringify(infoForBody)
- })
+    fetch('/signup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(infoForBody)
+    })
     .then(data => data.json())
-     .then(data => { 
-         console.log('data after signup', data);
-         setPage(true);
-       
-      })
+    .then(data => { 
+      console.log('data after signup', data);
+      setPage(true);
+      setUserId(data.id)  
+    })
     .catch(err=>console.log('error in signup', err))
   }
       
@@ -97,24 +98,27 @@ export const Signup = () => {
 
   return (
     <div className="signup-container">
+      
       <h1>Let's Start Your Journey</h1>
       <br></br>
-      <h2>Create New Account</h2>
+      <div className='signup-box'>
+        <h2>Create New Account</h2>
+        <br></br>
       {/* <Form method='post' action='/signup' className='signup-form'> */}
       {/* <form id='signup-form' method='post' action='/homepage' onSubmit={signupAction}>   */}
-        <label>
+        {/* <label> */}
           <span>New Username</span>
           <br></br>
           <input type="text" name="username" onChange={e => setUsername(e.target.value)} required />
-        </label>
+        {/* </label> */}
         <br></br>
-        <label>
+        {/* <label> */}
           <span>New Password</span>
           <br></br>
           <input type="password" name="password" onChange={e => setPassword(e.target.value)} required />
-        </label>
+        {/* </label> */}
         <br></br>
-        <label>
+        {/* <label> */}
           <span>Gender</span>
           <br></br>
           <select onChange={(e) => setGender(e.target.value)} required>
@@ -124,28 +128,30 @@ export const Signup = () => {
 					  <option >Female</option>
 					  <option >Male</option>
           </select>
-        </label>
+        {/* </label> */}
         <br></br>
-        <label>
+        {/* <label> */}
           <span>Height {'('}in Inch{')'}</span>
           <br></br>
           <input type="number" name="height" placeholder='in' onChange={e => setHeight(e.target.value)}required />
-        </label>
+        {/* </label> */}
         <br></br>
-        <label>
+        {/* <label> */}
           <span>Starting Weight {'('}in Pound{')'}</span>
           <br></br>
           <input type="number" name="weight" placeholder='lb' onChange={e => setWeight(e.target.value)}required />
-        </label>
+        {/* </label> */}
         <br></br>
-        <label>
+        {/* <label> */}
           <span>Your Goal Weight {'('}in Pound{')'}</span>
           <br></br>
           <input type="number" name="goal" placeholder='lb'onChange={e => setGoal(e.target.value)}/>
-        </label>
+        {/* </label> */}
+        <br></br>
         <br></br>
         <button type="submit" onClick={signupAction}>Submit</button>
-      {/* </form> */}
+        {/* </form> */}
+        </div>
     </div>
   )
 };

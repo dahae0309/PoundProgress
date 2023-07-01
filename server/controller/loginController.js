@@ -11,14 +11,14 @@ loginController.verification = (req, res, next) => {
 
   console.log('req.body:',req.body);
 
-  const text1 = "SELECT pw, id FROM users WHERE username = $1";
+  const text1 = "SELECT password, username, id FROM users WHERE username = $1";
   db.query(text1, [username])
     .then(data => {
       //res.locals.userInfo = data.rows;
       console.log('data from db', data.rows)
-      if (data.rows[0].pw === password) {
+      if (data.rows[0].password === password) {
         res.locals.status = "verified";
-        res.locals.id = data.rows[0].id
+        res.locals.id = data.rows[0].id;
         return next();
       }
       else {

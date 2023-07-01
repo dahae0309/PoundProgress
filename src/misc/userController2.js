@@ -1,4 +1,4 @@
-const db = require('../models/userModel')
+const db = require('../../server/models/userModel')
 
 
 const userController = {};

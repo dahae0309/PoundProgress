@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Neucha&family=Poppins:wght@300&display=swap');
 
 body {
   background-color: rgb(248, 240, 240);
-  font-family: Roboto Slab;
+  /* font-family: Roboto Slab; */
+  font-family: Poppins;
   color: black;
   box-sizing: inherit;
   margin: 3%;
@@ -64,19 +66,28 @@ margin-left: 30%;
   margin-left: 1%;
 }
 
+
+/* WELCOME/LOGIN page********************** */
+
 /* .applicationName{
   font-size: 50px;
   
 } */
 
-.login-container{
+/* .login-container{
   margin-top: 12%;
   display: flex;
   justify-content: space-around;
+} */
+
+.welcome-container{
+  margin-top: 12%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .login-wrapper {
-  display:flex;
+  /* display:flex; */
   justify-content: center;
   width: 30%;
 }
@@ -85,7 +96,8 @@ margin-left: 30%;
   width: 100%;
   height: auto;
   /* Magic! */
-  max-width: 30vw;
+  max-width: 40vw;
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,.8);
 }
  .applicationName {
     position: absolute;
@@ -103,8 +115,9 @@ margin-left: 30%;
   font-style: italic;
   font-size: 2vw;
   margin-left: 60px;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-self: flex-end;
+  max-width: 40vw;
 }
 
  .applicationName h1{
@@ -116,7 +129,7 @@ margin-left: 30%;
  }
 
 .login h1{
-  font-size: 2.5vw;
+  font-size: 2vw;
   margin: 0;
   /* text-shadow: pink 1px 0 10px;; */
 }
@@ -124,21 +137,100 @@ margin-left: 30%;
 .login p{
   font-size: 1.5vw;
   margin-bottom: 10px;
+  margin-top:10px;
 }
 
 .login button {
   width: 5vw;
   height: 2vw;
   font-size: 1vw;
-  box-shadow: 2px 2px 4px 0 rgba(0,0,0,.2);
+  box-shadow: 2px 2px 4px 2px rgba(0,0,0,.4);
+  outline: none;
+  border: none;
 }
 
 .login-input{
   font-size: 1vw;
   width: 12vw;
   height: 1.4vw;
+  /* outline-color: white; */
+  border-color: white;
 }
+
+/* .login-signup-container{
+  flex-direction: row;
+}*/
+
+.login-msg{
+  min-width: 16vw; 
+} 
 
 .newAccount {
   font-size: 1vw;
+  justify-content: flex-start;
 }
+
+/* SIGNUP page********************** */
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 40vw;
+  margin:0;
+  position: fixed;
+  left: 36%;
+}
+
+.signup-container h1 {
+  min-width: 30vw;
+  font-size: 3vw;
+}
+
+.signup-box {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  /* justify-content: center; */
+  outline: auto;
+  max-width: 30vw;
+  justify-content: center;
+  align-items: center;
+  font-size: 1vw;
+  outline: none;
+  box-shadow: 2px 2px 4px 2px rgba(0,0,0,.2);
+}
+
+.signup-box h2 {
+  margin:0;
+  font-size: 2vw;
+}
+
+.signup-box span {
+  /* padding: 10px; */
+  font-size: 1.4vw;
+  margin-bottom: -10px;
+}
+
+.signup-box select, .signup-box button {
+  font-size: 1.4vw;
+  margin-bottom: 10px;
+  height: 2vw;
+  box-shadow: 2px 2px 4px 2px rgba(0,0,0,.4);
+  outline: none;
+  border: none;
+}
+
+.signup-box input {
+  font-size: 1.4vw;
+  height: 1.8vw;
+  width: 14vw;
+  outline-color: white;
+  border-color: white;
+  margin-bottom: 10px;
+}
+
+/* .signup-box button {
+  box-shadow: 2px 2px 4px 2px rgba(0,0,0,.4);
+  outline: none;
+  border: none;
+} */

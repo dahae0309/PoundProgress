@@ -8,12 +8,27 @@ const signupController = {};
 signupController.signup = (req, res, next) => {
   console.log('inside signupController.signup');
   console.log(req.body)
-  console.log(req.params)
-  res.locals.msg = "hi"
-  return next()
-  //   console.log('req.body:',req.body);
+  
+  const { username, password, gender, height, weight, goal } = req.body;
+
+  const text1 = "INSERT INTO users (username, password, gender, height, weight, goal) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *"
+    db.query(text1, [username, password, gender, height, weight, goal])
+    .then(data => {
+      //res.locals.userInfo = data.rows;
+      console.log('data from db', data.rows)
+        res.locals.status = "verified";
+        res.locals.id = data.rows[0].id;
+        return next();
+    })
+    .catch(err => {
+      return next({
+        log: `signupController.signup: ERROR: ${err}`,
+        message: { err: 'Error occurred in signupController.signup. Check server logs for more details.' }
+      })
+     })
+  
 }
-//   const  {username, password}  = req.body;
+
 
 //   console.log('req.body:',req.body);
 

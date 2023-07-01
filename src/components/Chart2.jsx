@@ -8,6 +8,7 @@ const BarChart = ({historyData}) => {
   console.log("historyData2:", historyData)  
 
   const date = historyData?.map(weightObj => new Date(weightObj.created_at).toLocaleDateString())
+  console.log(date)
   const weightHistory = historyData?.map(weightObj => weightObj.weight)
 
   const chartData = {
