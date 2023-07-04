@@ -1,8 +1,8 @@
-<div align="center">
+<!-- <div align="center">
   
 ## <img src="/src/assets/logo.png">
 
-</div>
+</div> -->
 
 <h1 align="center">POUND PROGRESS - Visualize your own progress!</h1>
 
@@ -21,7 +21,6 @@ POUND PROGRESS is a user-friendly application designed to help individuals track
 - **Data Insights:** Gain valuable insights into your weight changes and patterns.
 - **Secure and Private:** Rest assured that your weight data is kept private and secure.
 
----
 
 ## <img src="/src/assets/image2.png">
 ## <img src="/src/assets/image3.png">
@@ -45,7 +44,7 @@ npm install
 npm start
 ```
 
----
+
 
 ### Technologies Used
 
@@ -54,19 +53,18 @@ npm start
 - Database: PostgreSQL
 - Charting: Chart.js
 
----
+
 
 ### Contributing
 
 Contributions are always welcome! If you have any ideas or suggestions to improve this application, feel free to submit a pull request. Please ensure that your contributions align with the project's coding style and conventions.
 
 
----
 
 ### Contact
 If you have any questions, suggestions, or feedback, please feel free to contact us
 
----
+
 
 Happy weight tracking and fitness journey!
 
