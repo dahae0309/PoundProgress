@@ -35,9 +35,9 @@ app.post('/signup', signupController.signup,
     //res.sendFile(path.resolve(__dirname, '../src/components/Homepage2.jsx'))
   })
 
-app.get('/history', userController.getAllHistory,
+app.post('/history', userController.getUserInfo, userController.getAllHistory,
   (req, res) => {
-    return res.status(200).json(res.locals.history)
+    return res.status(200).json(res.locals)
   })
 // app.post('/login', userController.logIn,
 //   (req, res) => {
@@ -46,7 +46,7 @@ app.get('/history', userController.getAllHistory,
 
 
 
-app.post('/history', userController.saveHistory,
+app.put('/history', userController.saveHistory,
   (req, res) => {
     return res.status(200).json(res.locals.history)
   });

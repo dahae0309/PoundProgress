@@ -7,12 +7,12 @@ const userController = {};
 
 userController.saveHistory = (req, res, next) => {
   
-  const { weight } = req.body;
+  const { weight, userId } = req.body;
 
-  //console.log('req.body:',req.body);
+  console.log('req.body:',req.body);
 
-  const text1 = "INSERT INTO weightHistory (weight) VALUES ($1) RETURNING *;";
-  db.query(text1, [weight])
+  const text1 = "INSERT INTO weighthistory (weight, user_id) VALUES ($1, $2) RETURNING *;";
+  db.query(text1, [weight, userId])
     .then(data => {
       console.log("data saved into DB")
       res.locals.history = data.rows;
@@ -28,12 +28,12 @@ userController.saveHistory = (req, res, next) => {
 
 userController.deleteHistory = (req, res, next) => {
   
-  const { id } = req.body;
+  const { weightId } = req.body;
 
  // console.log('req.body:',req.body);
 
-  const text1 = "DELETE FROM weightHistory WHERE id = ($1);";
-  db.query(text1, [id])
+  const text = "DELETE FROM weightHistory WHERE id = ($1);";
+  db.query(text, [weightId])
     .then(data => {
       console.log("data saved into DB")
       res.locals.history = data.rows;
@@ -48,20 +48,21 @@ userController.deleteHistory = (req, res, next) => {
 }
 
 
-
 userController.getAllHistory = (req, res, next) => {
   //find user by id
     //grab the array of history
       //send history to the frontend
   
   // const { weight } = req.body;
-
+  
+  const { userId } = req.body;
+  console.log(userId)
   //console.log('req.body:',req.body);
 
-  const text2 = "SELECT * FROM weightHistory WHERE weight IS NOT NULL";
-  db.query(text2)
+  const text = "SELECT * FROM weightHistory WHERE user_id = $1";
+  db.query(text,[userId])
     .then(data => {
-      //console.log("history DB", data)
+      console.log("history DB", data.rows)
       res.locals.history = data.rows;
       return next()
      })
@@ -70,7 +71,35 @@ userController.getAllHistory = (req, res, next) => {
         log: `userController.getAllhistory: ERROR: ${err}`,
         message: { err: 'Error occurred in userController.getAllhistory. Check server logs for more details.' }
       })
+    })
+  
+};
+
+userController.getUserInfo = (req, res, next) => {
+  //find user by id
+    //grab the array of history
+      //send history to the frontend
+  
+  // const { weight } = req.body;
+  
+  const { userId } = req.body;
+  //console.log(userId)
+  //console.log('req.body:',req.body);
+
+  const text = "SELECT username, gender, height, weight, goal FROM users WHERE id = $1";
+  db.query(text,[userId])
+    .then(data => {
+      console.log("userInfo", data.rows)
+      res.locals.userInfo = data.rows;
+      return next()
      })
+    .catch(err => {
+      return next({
+        log: `userController.getUserInfo: ERROR: ${err}`,
+        message: { err: 'Error occurred in userController.getUserInfo. Check server logs for more details.' }
+      })
+    })
+  
 };
 
 module.exports = userController;

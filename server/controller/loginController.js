@@ -11,7 +11,7 @@ loginController.verification = (req, res, next) => {
 
   console.log('req.body:',req.body);
 
-  const text1 = "SELECT password, username, id FROM users WHERE username = $1";
+  const text1 = "SELECT * FROM users WHERE username = $1";
   db.query(text1, [username])
     .then(data => {
       //res.locals.userInfo = data.rows;
@@ -19,6 +19,8 @@ loginController.verification = (req, res, next) => {
       if (data.rows[0].password === password) {
         res.locals.status = "verified";
         res.locals.id = data.rows[0].id;
+        // res.locals.username = data.rows[0].username;
+        //res.locals.userInfo = data.rows[0]
         return next();
       }
       else {

@@ -11,6 +11,11 @@ export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { userId, setUserId } = useContext(userContext);
+  //const { userInfo, setUserInfo } = useContext(userContext);
+  // const { userGender, setUserGender } = useContext(userContext);
+  // const { userHeight, setUserHeight } = useContext(userContext);
+  // const { userWeight, setUserWeight } = useContext(userContext);
+  // const { userGoal, setUserGoal } = useContext(userContext);
   //const { currentPage } = useContext(pageContext)
 
   // useEffect(() => {
@@ -24,7 +29,7 @@ export const Login = () => {
   useEffect(() => {
     //console.log('updated??', userId)
     if (userId) {
-      console.log("updated userId in Login", userId)
+      //console.log("updated userId in Login", userId, userInfo)
       return navigate("/dashboard");
      }
    })
@@ -38,10 +43,15 @@ export const Login = () => {
  })
   .then(data => data.json())
     .then(data => {
-      console.log("login data:", data);
+      //console.log("login data:", data);
       if (data.status === "verified") {
-        console.log('data.userId', data.id);
+        //console.log('data.userInfo', data.id);
         setUserId(data.id)
+        // setUserInfo(data.userInfo.userInfo)
+        // setUserGender(data.userInfo.gender)
+        // setUserWeight(data.userInfo.weight)
+        // setUserHeight(data.userInfo.height)
+        // setUserGoal(data.userInfo.goal)
         //return navigate("/homepage");
       } else {
         alert(data.status)
@@ -57,7 +67,7 @@ export const Login = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    console.log(username, password)
+    //console.log(username, password)
 
     loginUser();
   }

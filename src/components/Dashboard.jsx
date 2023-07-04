@@ -2,15 +2,20 @@ import React, { useState, useEffect, useContext } from "react";
 import Weight from './Weight2.jsx'
 import WklyHistory from './WklyHistory2.jsx'
 import BarChart from './Chart2.jsx'
-import { userContext } from '../context';
+import { BMI } from './BMI.jsx'
+import { Goal } from './Goal.jsx'
+import { userContext, userInfoContext } from '../context';
 
 
 const Dashboard = () => {
   const [inputWeight, setInputWeight] = useState('');
   const [historyData, setHistoryData] = useState();
   const { userId, setUserId } = useContext(userContext);
+  const { userInfo, setUserInfo } = useContext(userInfoContext);
 
-  console.log("userId", userId)  // it works now!!! need to update logs/charts according to userId
+  // const sortedHistory = historyData?.slice().sort((a,b)=>a.id-b.id) 
+
+  //console.log("userId", userId)  // it works now!!! need to update logs/charts according to userId
 
   const onChange = (e) => {
     const input = e.target.value;
@@ -20,38 +25,48 @@ const Dashboard = () => {
   const saveHistory = () => {
     if (inputWeight) {
       fetch('/history', {
-        method: 'POST',
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ weight: Number(inputWeight) })
+        body: JSON.stringify({ weight: Number(inputWeight), userId: userId })
       })
       .then(data => data.json())
         .then(data => {
           getData();
-          console.log('data is fetched');
+          //console.log('data is fetched');
         })
       .catch(err => console.log("error in saving history", err));
     }
   };
 
   const getData = async () => {
-    await fetch('/history')
-    .then(res => res.json())
-      .then(result => {
-      setHistoryData(result);
+    await fetch('/history', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({userId: userId })
+    })
+    .then(data => data.json())
+      .then(data => {
+        //console.log(data)
+        //console.log(data.userInfo)
+
+        const sortedHistory = data.history?.slice().sort((a,b)=>a.id-b.id) 
+        setHistoryData(sortedHistory);
+        setUserInfo(data.userInfo)
     })
     .catch(err => console.log("error in getting history", err));
   };
     
-  const deleteHistory = (weightID) => {
+  const deleteHistory = (weightId) => {
+    //console.log('weightID',weightId)
     fetch('/delete', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: weightID })
+      body: JSON.stringify({ weightId: weightId })
     })
       .then(data => data.json())
       .then(data => {
         getData();
-        console.log(data, "data is deleted");
+        //console.log(data, "data is deleted");
     })
     .catch(err => console.log("error in saving history", err));
     };
@@ -59,7 +74,7 @@ const Dashboard = () => {
   useEffect(() => {
     getData();
   }, []);
-    
+  
 
   return (
     <div id="container">
@@ -71,15 +86,27 @@ const Dashboard = () => {
           // inputWeight={inputWeight}
           // setInputWeight={setInputWeight}
         />
+        <div className="middle-box">
         <WklyHistory
           historyData={historyData}
           // setHistoryData={setHistoryData}
           deleteHistory={deleteHistory}
         />
-        <div id="chart"><BarChart
+        <BMI
+          // userId={userId}
+          historyData={historyData}
+          //userInfo={userInfo}
+        />
+        <Goal
+          historyData={historyData}
+          />
+          </div>
+        <div id="chart">
+          <BarChart
           historyData={historyData}
           setHistoryData={setHistoryData}
-        /></div>
+          />
+        </div>
         {/* <Status /> stretch feature */}
       </div>
     </div>

@@ -11,11 +11,6 @@ export const Welcome = () => {
 
   return (
     <div>
-      <div className='applicationName'>
-        {/* POSSIBLE NAVBAR HERE! */}
-        <h1>Pound
-          Progress</h1>
-      </div>
       <div className='welcome-container'>
         <img src='../assets/pp2.jpg' className="image" alt="image" />
         <div className='login-quote'>

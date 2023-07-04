@@ -5,13 +5,14 @@ import Dashboard from './Dashboard';
 import { Welcome } from './Welcome';
 import { Login } from './Login';
 import { Signup } from './Signup';
-import { userContext } from '../context';
+import { Shared } from './Shared';
+import { userContext, userInfoContext } from '../context';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
-      <Route path="/login" element={<Login />} />
+    <Route path="/" element={<Shared />}>
       <Route path="/" element={<Welcome />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/signup" element={ <Signup />} />
     </Route>
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
 
 const App = ()=> {
   const [ userId, setUserId ] = useState(null); 
+  const [ userInfo, setUserInfo ] = useState(null); 
   return (
     // <div className="wrapper">
     //   <BrowserRouter>
@@ -31,15 +33,17 @@ const App = ()=> {
 
     // </div>
     <userContext.Provider value={{ userId, setUserId }}>
-
+      <userInfoContext.Provider value={{userInfo, setUserInfo}}>
           <RouterProvider router={router} />
-
+    </userInfoContext.Provider>
     </userContext.Provider>
   );
 }
 
 export default App;
 
+
+//{userInfo, setUserInfo}
 // import React from 'react';
 // import Homepage from './Homepage2.jsx';
 // import Login from './Login.jsx';
