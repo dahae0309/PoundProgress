@@ -6,9 +6,9 @@
 
 <h1 align="center">POUND PROGRESS - Visualize your own progress!</h1>
 
-
+<div align="center">
 POUND PROGRESS is a user-friendly application designed to help individuals track and monitor their weight loss or weight gain progress. This app provides a convenient way to record and visualize weight measurements, set goals, and track progress over time. Whether you're on a fitness journey, managing weight for health reasons, or simply curious about your progress, this app has got you covered!
-
+</div>
 
 ## <img src="/src/assets/image1.png">
 
@@ -54,6 +54,8 @@ npm start
 - Database: PostgreSQL
 - Charting: Chart.js
 
+---
+
 ### Contributing
 
 Contributions are always welcome! If you have any ideas or suggestions to improve this application, feel free to submit a pull request. Please ensure that your contributions align with the project's coding style and conventions.
@@ -64,6 +66,7 @@ Contributions are always welcome! If you have any ideas or suggestions to improv
 ### Contact
 If you have any questions, suggestions, or feedback, please feel free to contact us
 
+---
 
 Happy weight tracking and fitness journey!
 
