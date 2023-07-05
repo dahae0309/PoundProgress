@@ -162,7 +162,7 @@ font-weight: bold;
   padding: 30px;
   outline: none;
   box-shadow: 2px 2px 4px 2px rgba(0,0,0,.2);
-  /* min-width: 20vw; */
+  min-width: 20vw;
   margin: 0;
 }
 
@@ -170,6 +170,13 @@ font-weight: bold;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.progress h3, .plan h3{
+  display: flex;
+  flex-direction: row;
+  /* margin: 2px; */
+  justify-content: space-evenly;
 }
 
 #goal-container button{
@@ -354,7 +361,7 @@ font-weight: bold;
   width: 8vw;
   height: 3vw;
   font-size: 1.4vw;
-  box-shadow: 2px 2px 4px 2px rgba(250, 248, 248, 0.4);
+  box-shadow: 2px 2px 4px 2px rgb(170, 169, 169);
   outline: none;
   border: none;
   border-radius: 3px;

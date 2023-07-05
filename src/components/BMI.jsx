@@ -30,6 +30,17 @@ export const BMI = ({ historyData }) => {
     //   // userInfoCopy = JSON.parse(JSON.stringify(userInfo));
     //   BMI = (((historyCopy[historyCopy.length - 1].weight) / (userInfoCopy[0].height) ** 2) * 703).toFixed(2);
     // }
+    if (BMI < 18.5) {
+      BMI = <div style={{ color: '#f5a59f' }}>{BMI}</div>;
+    } else if (BMI >= 18.5 && BMI <25) {
+      BMI = <div style={{ color: 'green' }}>{BMI}</div>
+    }
+    else if (BMI >= 25 && BMI <30) {
+      BMI = <div style={{ color: 'orange' }}>{BMI}</div>
+    }
+    else if (BMI >= 30) {
+      BMI = <div style={{ color: 'red' }}>{BMI}</div>
+    }
   }
 
 
@@ -41,10 +52,10 @@ export const BMI = ({ historyData }) => {
           {/* <h2>Your BMI is {BMI!==null? BMI: noBMI}</h2> */}
           <h2>Your BMI is {BMI}</h2>
           <h2>BMI Range</h2>
-          <h3>Below 18.5 : Underweight</h3>
-          <h3>18.5 — 24.9 : Healthy Weight</h3>
-          <h3>25.0 — 29.9 : Overweight</h3>
-          <h3>30.0 and Above : Obesity</h3>
+          <div style={{ color: '#f5a59f' }}><h3>Below 18.5 : Underweight</h3></div>
+          <div style={{ color: 'green' }}><h3>18.5 — 24.9 : Healthy Weight</h3></div>
+          <div style={{ color: 'orange' }}><h3>25.0 — 29.9 : Overweight</h3></div>
+          <div style={{ color: 'red' }}><h3>30.0 and Above : Obesity</h3></div>
       </div>
     </div>
     </div>

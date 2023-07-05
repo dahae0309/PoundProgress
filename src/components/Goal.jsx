@@ -91,9 +91,13 @@ export const Goal = ({ historyData, getData }) => {
           }
         {/* </h2> */}
         {/* <h3>You started from {startWeight} lb</h3> */}
-        {mostRecentWeight < startWeight ? <h3>You lost {startWeight-mostRecentWeight } lb since you started</h3> : <h3>You gain { mostRecentWeight-startWeight} lb</h3>}
+        <div className='progress'>
+          {mostRecentWeight < startWeight ? <h3>You lost <div style={{ color: 'blue' }}>{startWeight-mostRecentWeight} lb </div> since you started.</h3> : <h3>You gain <div style={{ color: 'blue' }}>{ mostRecentWeight-startWeight} lb </div> since you started</h3>}
+        </div>
         {/* <h3>{ mostRecentWeight-userGoal} lb to go. YOU GOT THIS!!</h3> */}
-        { mostRecentWeight-userGoal>0? <h3>{ mostRecentWeight-userGoal} lb to go. YOU GOT THIS!!</h3> : <h3>You reached your GOAL! GREAT JOB!</h3>}
+        <div className='plan'>
+          {mostRecentWeight - userGoal > 0 ? <h3><div style={{ color: 'red' }}>{mostRecentWeight - userGoal} lb </div> to go. YOU GOT THIS!!</h3> : <div style={{ color: 'green' }}><h3>You reached your GOAL! GREAT JOB!</h3></div>}
+        </div>
       </div>
     </div>
   )
