@@ -276,19 +276,24 @@ font-weight: bold;
 }
 
 #userChart{
-  height: 44%;
-  width: 94%;
+  /* height: 44%;
+  width: 94%; */
   padding: 30px;
   outline: none;
   box-shadow: 2px 2px 4px 2px rgba(0,0,0,.2);
   min-width: 20vw;
 }
 
-/* #userChart{
-  height: 100%;
+#userChart canvas{
   width: 100%;
+}
 
-} */
+canvas{
+
+  width:100% !important;
+  height:600% !important;
+
+}
 /* #save{
   margin-left: 1%;
 } */

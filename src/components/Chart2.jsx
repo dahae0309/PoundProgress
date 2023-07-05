@@ -28,12 +28,26 @@ const BarChart = ({historyData}) => {
       <Line
         data={chartData}
         options={{
+          responsive: true,
           maintainAspectRatio: true,
           scales: {
             x: {
-                type: 'category',
-                labels: date
-            }
+              type: 'category',
+              labels: date,
+              ticks: {
+                font: {
+                  size: 20 ,
+                }
+              }
+            },
+            y: {
+
+              ticks: {
+                font: {
+                  size: 20,
+                }
+              }
+            },
           },
           
         plugins: {
