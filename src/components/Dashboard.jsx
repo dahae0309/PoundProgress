@@ -78,7 +78,7 @@ const Dashboard = () => {
 
   return (
     <div id="container">
-      <div id="quote">Don’t compare yourself to others. Compare yourself to the person from yesterday.</div>
+      {/* <div id="quote">"Don’t compare yourself to others. Compare yourself to the person from yesterday."</div> */}
       <div>
         <Weight
           onChange={onChange}
