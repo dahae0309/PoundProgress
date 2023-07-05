@@ -8,6 +8,7 @@ const PORT = 3000;
 const userController = require('./controller/userController');
 const loginController = require('./controller/loginController');
 const signupController = require('./controller/signupController');
+const goalController = require('./controller/goalController');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -28,7 +29,7 @@ app.post('/login', loginController.verification,
     //res.sendFile(path.resolve(__dirname, '../src/components/Homepage2.jsx'))
   })
 
-app.post('/signup', signupController.signup,
+app.post('/signup', signupController.signup,signupController.firstHistory,
   (req, res) => {
     console.log('signed up')
     return res.status(200).json(res.locals)
@@ -44,11 +45,14 @@ app.post('/history', userController.getUserInfo, userController.getAllHistory,
 //     return res.status(200)
 //   });
 
-
-
 app.put('/history', userController.saveHistory,
   (req, res) => {
     return res.status(200).json(res.locals.history)
+  });
+
+app.put('/newgoal', goalController.newGoal,
+  (req, res) => {
+    return res.status(200).json(res.locals)
   });
 
 app.delete('/delete', userController.deleteHistory,

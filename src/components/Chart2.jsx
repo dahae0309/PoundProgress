@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Line } from "react-chartjs-2";
 import Chart from 'chart.js/auto';
+import { userContext, userInfoContext } from '../context';
 
 
 const BarChart = ({historyData}) => {
 
   //console.log("historyData2:", historyData)  
-
+  const { userInfo, setUserInfo } = useContext(userInfoContext);
   const date = historyData?.map(weightObj => new Date(weightObj.created_at).toLocaleDateString())
   //console.log(date)
   const weightHistory = historyData?.map(weightObj => weightObj.weight)

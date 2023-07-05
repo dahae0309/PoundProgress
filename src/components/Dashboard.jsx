@@ -87,25 +87,30 @@ const Dashboard = () => {
           // setInputWeight={setInputWeight}
         />
         <div className="middle-box">
-        <WklyHistory
-          historyData={historyData}
-          // setHistoryData={setHistoryData}
-          deleteHistory={deleteHistory}
-        />
-        <BMI
-          // userId={userId}
-          historyData={historyData}
-          //userInfo={userInfo}
-        />
-        <Goal
-          historyData={historyData}
+          <WklyHistory
+            historyData={historyData}
+            // setHistoryData={setHistoryData}
+            deleteHistory={deleteHistory}
           />
+          <div className="bmi-goal-chart">
+            <div className="bmi-goal">
+              <BMI
+                // userId={userId}
+                historyData={historyData}
+                //userInfo={userInfo}
+              />
+              <Goal
+                getData={getData}
+                historyData={historyData}
+              />
+            </div>
+            <div id="chart">
+              <BarChart
+                historyData={historyData}
+                setHistoryData={setHistoryData}
+              />
+            </div>
           </div>
-        <div id="chart">
-          <BarChart
-          historyData={historyData}
-          setHistoryData={setHistoryData}
-          />
         </div>
         {/* <Status /> stretch feature */}
       </div>

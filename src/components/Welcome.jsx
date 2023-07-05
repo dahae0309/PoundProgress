@@ -4,7 +4,7 @@ import { userContext, pageContext } from '../context';
 import { Signup } from './Signup.jsx';
 import { Login } from './Login.jsx';
 // import pp from '../assets/pp.jpg'
-import pp2 from '../assets/pp2.jpg'
+//import pp2 from '../assets/pp2.jpg'
 
 
 export const Welcome = () => {

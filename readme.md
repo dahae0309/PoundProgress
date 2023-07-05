@@ -1,8 +1,8 @@
-<!-- <div align="center">
+<div align="center">
   
-## <img src="/src/assets/logo.png">
+## <img src="/src/assets/PP_main.png">
 
-</div> -->
+</div>
 
 <h1 align="center">POUND PROGRESS - Visualize your own progress!</h1>
 

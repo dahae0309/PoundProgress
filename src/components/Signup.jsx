@@ -22,7 +22,7 @@ export const Signup = () => {
     if (nextPage === true) {
       console.log("ready to move on to homepage")
       console.log('userId in signup page',userId)
-      return navigate("/dashboard");
+      return navigate("/");
     }
   });
 

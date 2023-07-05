@@ -86,7 +86,7 @@ userController.getUserInfo = (req, res, next) => {
   //console.log(userId)
   //console.log('req.body:',req.body);
 
-  const text = "SELECT username, gender, height, weight, goal FROM users WHERE id = $1";
+  const text = "SELECT username, gender, height, weight, goal, created_at FROM users WHERE id = $1";
   db.query(text,[userId])
     .then(data => {
       console.log("userInfo", data.rows)

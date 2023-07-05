@@ -29,6 +29,29 @@ signupController.signup = (req, res, next) => {
   
 }
 
+signupController.firstHistory = (req, res, next) => {
+  console.log('inside ssignupController.firstHistory');
+  console.log(req.body)
+  
+  const { weight } = req.body;
+  const { id } = res.locals
+
+  const text1 = "INSERT INTO weighthistory (weight, user_id) VALUES ($1, $2) RETURNING *"
+    db.query(text1, [weight, id])
+    .then(data => {
+      //res.locals.userInfo = data.rows;
+      console.log('data from db', data.rows)
+        return next();
+    })
+    .catch(err => {
+      return next({
+        log: `signupController.firstHistory: ERROR: ${err}`,
+        message: { err: 'Error occurred in signupController.firstHistory. Check server logs for more details.' }
+      })
+     })
+  
+}
+
 
 //   console.log('req.body:',req.body);
 

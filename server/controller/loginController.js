@@ -16,6 +16,10 @@ loginController.verification = (req, res, next) => {
     .then(data => {
       //res.locals.userInfo = data.rows;
       console.log('data from db', data.rows)
+      if (data.rows.length === 0) {
+        res.locals.status = "Cannot find username. Please sign up first."
+        return next()
+      }
       if (data.rows[0].password === password) {
         res.locals.status = "verified";
         res.locals.id = data.rows[0].id;

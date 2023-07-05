@@ -29,7 +29,8 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.(js|jsx)$/,
+				// test: /\.(js|jsx)$/,
+				test: /\.(js|jsx|png|jpg|svg|gif|ico)$/,
 				exclude: /node_modules/,
 				// loader: "babel-loader",
 				// options: { presets: ["@babel/env", "@babel/preset-react", '@babel/preset-env' ] },
