@@ -23,7 +23,7 @@ POUND PROGRESS is a user-friendly application designed to help individuals track
 
 
 ## <img src="/src/assets/image2.png">
-## <img src="/src/assets/image3.png">
+<!-- ## <img src="/src/assets/image3.png"> -->
 
 
 ### Getting started
