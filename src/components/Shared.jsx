@@ -1,11 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate, Form, NavLink, useActionData, Outlet, useLocation } from 'react-router-dom';
 import { userContext, userInfoContext } from '../context';
-import { Signup } from './Signup.jsx';
-import { Login } from './Login.jsx';
-import { Welcome } from './Welcome';
-
-
 
 export const Shared = () => {
 
