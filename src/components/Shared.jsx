@@ -4,7 +4,7 @@ import { userContext, userInfoContext } from '../context';
 import { Signup } from './Signup.jsx';
 import { Login } from './Login.jsx';
 import { Welcome } from './Welcome';
-import img from '../assets/PP_main.png';
+
 
 
 export const Shared = () => {
@@ -47,7 +47,7 @@ export const Shared = () => {
         <div className='applicationName'>
           {/* POSSIBLE NAVBAR HERE! */}
           <img src='../assets/PP_main.png' className="main-logo" alt="image" />
-          {/* <img src={img} className="main-logo" alt="image" /> */}
+      
           {/* <img src='../assets/pp2.jpg' className="image" alt="image" /> */}
           <div>
           {/* <h1>Pound
