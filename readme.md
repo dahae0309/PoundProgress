@@ -1,6 +1,6 @@
 <div align="center">
   
-## <img src="/src/assets/PP_main.png">
+## <img src="/src/assets/ppmain1.png">
 
 </div>
 
