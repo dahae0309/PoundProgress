@@ -57,7 +57,7 @@ app.put('/newgoal', goalController.newGoal,
 
 app.delete('/delete', userController.deleteHistory,
   (req, res) => {
-    return res.status(200).json('remoed')
+    return res.status(200).json('removed')
   });
    
 

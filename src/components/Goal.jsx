@@ -15,6 +15,8 @@ export const Goal = ({ historyData, getData }) => {
   let userGoal;
   let mostRecentWeight;
   let startWeight;
+  let diffFromStart;
+  let diffFromGoal;
 
     if (historyData) {
     //historyCopy = JSON.parse(JSON.stringify(historyData));
@@ -22,7 +24,9 @@ export const Goal = ({ historyData, getData }) => {
     startWeight = userInfo[0].weight
     userGoal = userInfo[0].goal
     mostRecentWeight = historyData[historyData.length-1].weight
-    
+    diffFromStart = (startWeight - mostRecentWeight).toFixed(1)
+    diffFromGoal = (mostRecentWeight - userGoal).toFixed(1)
+    console.log(diffFromStart)
   }
 
   // if (historyData) {
@@ -92,11 +96,11 @@ export const Goal = ({ historyData, getData }) => {
         {/* </h2> */}
         {/* <h3>You started from {startWeight} lb</h3> */}
         <div className='progress'>
-          {mostRecentWeight < startWeight ? <h3>You lost <div style={{ color: 'blue' }}>{startWeight-mostRecentWeight} lb </div> since you started.</h3> : <h3>You gain <div style={{ color: 'blue' }}>{ mostRecentWeight-startWeight} lb </div> since you started</h3>}
+          {mostRecentWeight < startWeight ? <h3>You lost <div style={{ color: 'blue' }}>{diffFromStart} lb </div> since you started.</h3> : <h3>You gain <div style={{ color: 'blue' }}>{ Math.abs(diffFromStart) } lb </div> since you started</h3>}
         </div>
         {/* <h3>{ mostRecentWeight-userGoal} lb to go. YOU GOT THIS!!</h3> */}
         <div className='plan'>
-          {mostRecentWeight - userGoal > 0 ? <h3><div style={{ color: 'red' }}>{mostRecentWeight - userGoal} lb </div> to go. YOU GOT THIS!!</h3> : <div style={{ color: 'green' }}><h3>You reached your GOAL! GREAT JOB!</h3></div>}
+          {mostRecentWeight - userGoal > 0 ? <h3><div style={{ color: 'red' }}>{diffFromGoal} lb </div> to go. YOU GOT THIS!!</h3> : <div style={{ color: 'green' }}><h3>You reached your GOAL! GREAT JOB!</h3></div>}
         </div>
       </div>
     </div>

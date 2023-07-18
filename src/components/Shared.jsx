@@ -52,7 +52,7 @@ export const Shared = () => {
       ) : (
         <div className='applicationName'>
             {/* POSSIBLE NAVBAR HERE! */}
-                      <img src='../assets/PP_main.png' className="main-logo" alt="image" />
+                      <img src='../assets/PPmain1.jpg' className="main-logo" alt="image" />
           {/* <h1>Pound
               Progress</h1> */}
             <div className='logout' style={{ color: 'white' }}>

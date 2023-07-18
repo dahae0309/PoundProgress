@@ -47,10 +47,13 @@ export const BMI = ({ historyData }) => {
   return (
     <div>
       <div id="BMI-container">
-        <div id="BMI">
+        <div className="BMI">
           {/* <h2>Your BMI is {((historyCopy?.pop().weight)/(userInfoCopy?.pop().height**2) * 703).toFixed(2)}</h2> */}
           {/* <h2>Your BMI is {BMI!==null? BMI: noBMI}</h2> */}
-          <h2>Your BMI is {BMI}</h2>
+          <div className='current-BMI'>
+            <h2>Your BMI is</h2>
+            <h2> {BMI}</h2>
+          </div>
           <h2>BMI Range</h2>
           <div style={{ color: 'grey' }}><h3>Below 18.5 : Underweight</h3></div>
           <div style={{ color: 'green' }}><h3>18.5 — 24.9 : Healthy Weight</h3></div>
