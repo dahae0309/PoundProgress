@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate, Form, NavLink, useActionData, Outlet, useLocation } from 'react-router-dom';
 import { userContext, userInfoContext } from '../context';
+//import logo from '../assets/ppmain1.png'
 
 export const Shared = () => {
 
@@ -37,33 +38,47 @@ export const Shared = () => {
     //     </div>
     //   </div>
     // </div>
-    <div>
-      {locationURL === '/' || locationURL === '/signup' ? (
-        <div className='applicationName'>
-          {/* POSSIBLE NAVBAR HERE! */}
-          <img src='../assets/PP_main.png' className="main-logo" alt="image" />
-      
-          {/* <img src='../assets/pp2.jpg' className="image" alt="image" /> */}
-          <div>
-          {/* <h1>Pound
-              Progress</h1> */}
-            </div>
-        </div>
-      ) : (
-        <div className='applicationName'>
-            {/* POSSIBLE NAVBAR HERE! */}
-                      <img src='../assets/PPmain1.jpg' className="main-logo" alt="image" />
-          {/* <h1>Pound
-              Progress</h1> */}
-            <div className='logout' style={{ color: 'white' }}>
-              <button onClick={logOut}><NavLink to="/">Log Out</NavLink></button>
-            </div>
+    <div>   
+      <div className='applicationName'>
+        <img src="../assets/ppmain1.png" className="main-logo" alt="image" />
+        {/* POSSIBLE NAVBAR HERE! */}
+        {locationURL === '/' || locationURL === '/signup' ? (
+          null
+        ) : (
+          <div className='logout' style={{ color: 'white' }}>
+            <button onClick={logOut}><NavLink to="/">Log Out</NavLink></button>
           </div>
-      )
-      }
-    <div>
-      <Outlet/>
+        )
+        }
       </div>
+      <div>
+        <Outlet/>
       </div>
+    </div>
   )
-}
+};
+
+
+    //  {locationURL === '/' || locationURL === '/signup' ? (
+    //     <div className='applicationName'>
+    //       {/* POSSIBLE NAVBAR HERE! */}
+    //       <img src='/assets/PPmain1.jpg' className="main-logo" alt="image" />
+      
+    //       {/* <img src='../assets/pp2.jpg' className="image" alt="image" /> */}
+    //       {/* <div> */}
+    //       {/* <h1>Pound
+    //           Progress</h1> */}
+    //       {/* </div> */}
+    //     </div>
+    //   ) : (
+    //     <div className='applicationName'>
+    //         {/* POSSIBLE NAVBAR HERE! */}
+    //       <img src='../assets/PPmain1.jpg' className="main-logo" alt="image" />
+    //       {/* <h1>Pound
+    //           Progress</h1> */}
+    //       <div className='logout' style={{ color: 'white' }}>
+    //         <button onClick={logOut}><NavLink to="/">Log Out</NavLink></button>
+    //       </div>
+    //     </div>
+    //   )
+    //   }
