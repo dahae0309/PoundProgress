@@ -14,7 +14,15 @@ export const Shared = () => {
   const logOut = () => {
     setUserId(null)
     setUserInfo(null)
-   }
+  }
+  let button;
+  if (locationURL === '/') {
+    button = null;
+  } else if (locationURL === '/signup' || locationURL === '/contact') {
+    button = <button onClick={logOut}><NavLink to="/">Home</NavLink></button>;
+  } else {
+    button = <button onClick={logOut}><NavLink to="/">Log Out</NavLink></button>
+  }
  
   return (
     // <div>
@@ -38,21 +46,34 @@ export const Shared = () => {
     //     </div>
     //   </div>
     // </div>
-    <div>   
+    <div className='shared'>   
       <div className='applicationName'>
         <img src='../assets/ppmain1.png' className="main-logo" alt="image" />
         {/* POSSIBLE NAVBAR HERE! */}
-        {locationURL === '/' || locationURL === '/signup' ? (
+        {/* {locationURL === '/' || locationURL === '/signup' || locationURL === '/contact'? (
           null
+        // <button onClick={logOut}><NavLink to="/">Home</NavLink></button>
         ) : (
           <div className='logout' style={{ color: 'white' }}>
             <button onClick={logOut}><NavLink to="/">Log Out</NavLink></button>
           </div>
         )
-        }
+        } */}
+        {button}
       </div>
+      {/* <div class="footer">
+        <p>Footer</p>
+      </div> */}
       <div>
         <Outlet/>
+      </div>
+      <div className="footer">
+        {locationURL === '/contact' ? (
+        null
+        ) : (
+        <button onClick={logOut}><NavLink to="/contact">Contact Us</NavLink></button>    
+        )}
+        
       </div>
     </div>
   )
