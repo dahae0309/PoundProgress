@@ -71,6 +71,7 @@ font-weight: bold;
   margin-left: 4%;
   margin-right: 0;
   min-width: 34%;
+  max-width: 40%;
 
 }
 /* #history{
@@ -103,7 +104,7 @@ font-weight: bold;
   margin-left: 7%;
   /* margin-right: 2%; */
   /* margin-bottom: 2%; */
-  font-size: 1.5vw;
+  font-size: 2vh;
   min-width: 40%;
 }
 
@@ -153,6 +154,7 @@ font-weight: bold;
 .bmi-goal-chart{
   display:flex;
   flex-direction: column;
+  margin-right: 50px;
 }
 
 .bmi-goal{
@@ -459,7 +461,7 @@ text-decoration: none;
 .login-signup-container {
   box-shadow: 2px 2px 4px 0 rgba(0,0,0,.2);
   background-color: rgb(248, 240, 240);
-  height: 24vh;
+  height: 30%;
   padding:50px;
 }
 
