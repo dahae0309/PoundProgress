@@ -33,6 +33,14 @@ background-color: rgb(211, 181, 186)
    border-radius: 3px;
 } */
 
+button:active, a:active  {
+  background-color: rgb(211, 181, 186);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  /* transform: scale(0.98) */
+}
+
+
 #container{
   display: flex;
   flex-direction: column;
@@ -96,7 +104,7 @@ font-weight: bold;
   /* margin-right: 2%; */
   /* margin-bottom: 2%; */
   font-size: 1.5vw;
-  min-width: 30%;
+  min-width: 40%;
 }
 
 #createdAt{
@@ -392,7 +400,13 @@ canvas{
   border-radius: 3px;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
  }
+
+  .applicationName a {
+text-decoration: none;
+  color: black;
+  }
 
 .main-logo {
   width: auto;
@@ -430,7 +444,7 @@ canvas{
   justify-content: flex-start;
   align-self: flex-start;
   max-width: 40vw;
-  text-shadow: pink 1px 0 10px;
+  /* text-shadow: pink 1px 0 10px; */
 }
 
  .applicationName h1{
@@ -680,6 +694,16 @@ background-color: rgb(211, 181, 186)
   font-size: 2vh;
 }
 
+.footer-nav {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+/* .footer-nav a{
+  justify-content: space-evenly;
+} */
+
 .footer button {
     background-color: rgb(36, 35, 35);
     outline: none;
@@ -690,7 +714,7 @@ background-color: rgb(211, 181, 186)
   background-color: rgb(36, 35, 35);
   font-size: 2vh;
   color:#f8f4f4;
-  text-decoration: underline;
+  text-decoration: none;
   height: 100px;
 }
 
@@ -703,4 +727,33 @@ background-color: rgb(211, 181, 186)
 
 .contact h3{
   font-size: 3vh;
+}
+
+.privacy h1{
+  font-size: 2vh;
+  margin-top: 15%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.privacy h2, .privacy p{
+  font-size: 2vh;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/* .privacy p{
+  font-size: 2vh;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+} */
+
+.privacy h3{
+  font-size: 2vh;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 10%;
 }

@@ -7,6 +7,7 @@ import { Login } from './Login';
 import { Signup } from './Signup';
 import { Shared } from './Shared';
 import { Contact } from './Contact';
+import { Privacy } from './Privacy';
 import { userContext, userInfoContext } from '../context';
 
 const router = createBrowserRouter(
@@ -16,7 +17,8 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/contact" element={ <Contact />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/privacy" element={ <Privacy />} />
     </Route>
   )
 )

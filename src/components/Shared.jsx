@@ -18,11 +18,27 @@ export const Shared = () => {
   let button;
   if (locationURL === '/') {
     button = null;
-  } else if (locationURL === '/signup' || locationURL === '/contact') {
+  } else if (locationURL === '/signup' || locationURL === '/contact' || locationURL === '/privacy') {
     button = <button onClick={logOut}><NavLink to="/">Home</NavLink></button>;
   } else {
     button = <button onClick={logOut}><NavLink to="/">Log Out</NavLink></button>
   }
+
+  let footer;
+  if (locationURL === '/' || locationURL === '/signup' || locationURL === '/dashboard') {
+      footer = <div className='footer-nav'>
+          <button onClick={logOut}><NavLink to="/contact">Contact Us</NavLink></button>
+          <button onClick={logOut}><NavLink to="/privacy">Privacy</NavLink></button>  
+        </div>
+  } else if (locationURL === '/contact') {
+    footer = <button onClick={logOut}><NavLink to="/privacy">Privacy</NavLink></button>  
+  } else if(locationURL === '/privacy'){
+    footer = <button onClick={logOut}><NavLink to="/contact">Contact Us</NavLink></button>
+    }
+  
+
+              //   <button onClick={logOut}><NavLink to="/contact">Contact Us</NavLink></button>
+              // <button onClick={logOut}><NavLink to="/privacy">Privacy</NavLink></button>  
  
   return (
     // <div>
@@ -68,12 +84,15 @@ export const Shared = () => {
         <Outlet/>
       </div>
       <div className="footer">
-        {locationURL === '/contact' ? (
-        null
+        {/* {locationURL === '/contact' ? (
+        <button onClick={logOut}><NavLink to="/privacy">Privacy</NavLink></button> 
         ) : (
-        <button onClick={logOut}><NavLink to="/contact">Contact Us</NavLink></button>    
-        )}
-        
+            <div className='footer-nav'>
+              <button onClick={logOut}><NavLink to="/contact">Contact Us</NavLink></button>
+              <button onClick={logOut}><NavLink to="/privacy">Privacy</NavLink></button>  
+            </div>    
+        )} */}
+        {footer}
       </div>
     </div>
   )
