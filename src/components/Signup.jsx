@@ -44,8 +44,12 @@ export const Signup = () => {
     .then(data => data.json())
     .then(data => { 
       console.log('data after signup', data);
-      setPage(true);
-      setUserId(data.id)  
+      if (data.status === "Existing Username") {
+        alert("Please choose different username");
+      } else {
+        setPage(true);
+        setUserId(data.id);
+      }
     })
     .catch(err=>console.log('error in signup', err))
   }

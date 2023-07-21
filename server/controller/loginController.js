@@ -1,5 +1,5 @@
 const db = require('../models/userModel')
-
+const bcrypt = require('bcryptjs');
 
 const loginController = {};
 
@@ -20,7 +20,9 @@ loginController.verification = (req, res, next) => {
         res.locals.status = "Cannot find username. Please sign up first."
         return next()
       }
-      if (data.rows[0].password === password) {
+      const dbPassword = data.rows[0].password;
+      if (bcrypt.compareSync(password, dbPassword)) {
+        //console.log("verified!!!!")
         res.locals.status = "verified";
         res.locals.id = data.rows[0].id;
         // res.locals.username = data.rows[0].username;

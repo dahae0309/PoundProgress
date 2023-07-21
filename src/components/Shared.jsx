@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate, Form, NavLink, useActionData, Outlet, useLocation } from 'react-router-dom';
 import { userContext, userInfoContext } from '../context';
-//import logo from '../assets/ppmain1.png'
+import logo from '../assets/ppmain1.png'
 
 export const Shared = () => {
 
@@ -40,7 +40,7 @@ export const Shared = () => {
     // </div>
     <div>   
       <div className='applicationName'>
-        <img src="../assets/ppmain1.png" className="main-logo" alt="image" />
+        <img src='../assets/ppmain1.png' className="main-logo" alt="image" />
         {/* POSSIBLE NAVBAR HERE! */}
         {locationURL === '/' || locationURL === '/signup' ? (
           null
