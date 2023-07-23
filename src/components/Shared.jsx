@@ -10,7 +10,8 @@ export const Shared = () => {
   //const { userName, setUserName } = useContext(userInfoContext);
   const { userInfo, setUserInfo } = useContext(userInfoContext);
 
-  //console.log(userId, userName)
+  console.log("here!!", userInfo)
+  
   const logOut = () => {
     setUserId(null)
     setUserInfo(null)
@@ -65,6 +66,7 @@ export const Shared = () => {
     <div className='shared'>   
       <div className='applicationName'>
         <img src='../assets/ppmain1.png' className="main-logo" alt="image" />
+        <div className='welcome-user'>{userInfo ? (<h2>Welcome, {userInfo[0].username}</h2>):(null)}</div>
         {/* POSSIBLE NAVBAR HERE! */}
         {/* {locationURL === '/' || locationURL === '/signup' || locationURL === '/contact'? (
           null

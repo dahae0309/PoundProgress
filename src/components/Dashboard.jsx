@@ -5,7 +5,7 @@ import BarChart from './Chart2.jsx'
 import { BMI } from './BMI.jsx'
 import { Goal } from './Goal.jsx'
 import { userContext, userInfoContext } from '../context';
-
+import pp3 from '../assets/pp3.jpg'
 
 const Dashboard = () => {
   const [inputWeight, setInputWeight] = useState('');
@@ -79,7 +79,7 @@ const Dashboard = () => {
   return (
     <div id="container">
       {/* <div id="quote">"Don’t compare yourself to others. Compare yourself to the person from yesterday."</div> */}
-      <div>
+      <div className="dashboard">
         <Weight
           onChange={onChange}
           saveHistory={saveHistory}
@@ -112,8 +112,12 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        {/* <Status /> stretch feature */}
+              <div className="dashboard-image">
+        <img src='../assets/pp3.jpg' className="image" alt="image" />
+        <p className="dashboard-image-quote">"Nothing is impossible. The word itself says I'm possible."</p>
       </div>
+      </div>
+
     </div>
   );
 }
