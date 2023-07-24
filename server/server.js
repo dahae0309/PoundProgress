@@ -10,12 +10,15 @@ const loginController = require('./controller/loginController');
 const signupController = require('./controller/signupController');
 const goalController = require('./controller/goalController');
 
+const authRouter = require('../src/misc/routes/oauth')
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors());
 
 app.use('/src', express.static(path.resolve(__dirname, './src')));
+
 
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../src/index.html'));
@@ -35,6 +38,21 @@ app.post('/signup', signupController.signup,signupController.firstHistory,
     return res.status(200).json(res.locals)
     //res.sendFile(path.resolve(__dirname, '../src/components/Homepage2.jsx'))
   })
+
+//google Oauth
+// app.get('/oauth', authRouter)
+app.post('/oauth/login', loginController.verification,
+  (req, res) => {
+    console.log('Oauth login')
+    return res.status(200).json(res.locals)
+  });
+
+app.post('/oauth/signup', signupController.signup, signupController.firstHistory,
+  (req, res) => {
+    console.log('Oauth sign up')
+    return res.status(200).json(res.locals)
+  })
+//////////////////////////////
 
 app.post('/history', userController.getUserInfo, userController.getAllHistory,
   (req, res) => {

@@ -16,33 +16,45 @@ export const BMI = ({ historyData }) => {
   console.log("historyData:", historyData)
   console.log("userInfo:", userInfo)
   
+  // if (userInfo[0].height === 0) {
+  //   console.log("here!!!!!!!!!!!!!!!!!!!!")
+  //   BMI = <div style={{ color: 'black' }}>Need info</div>
+  //  }
+
+
   if (historyData) {
     //historyCopy = JSON.parse(JSON.stringify(historyData));
-    BMI = (((historyData[historyData.length - 1].weight) / (userInfo[0].height) ** 2) * 703).toFixed(2);
-    // userInfoCopy = JSON.parse(JSON.stringify(userInfo));
-    // if (historyData.length === 0) {
-    //   //console.log("use userInfo", userInfo);
-    //   // userInfoCopy = JSON.parse(JSON.stringify(userInfo));
-    //   BMI = (((userInfoCopy[0].weight) / (userInfoCopy[0].height) ** 2) * 703).toFixed(2);
-    // } else {
-    //   //console.log("use historyData and userInfo", historyData, userInfo);
-    //   // historyCopy = JSON.parse(JSON.stringify(historyData));
-    //   // userInfoCopy = JSON.parse(JSON.stringify(userInfo));
-    //   BMI = (((historyCopy[historyCopy.length - 1].weight) / (userInfoCopy[0].height) ** 2) * 703).toFixed(2);
-    // }
-    if (BMI < 18.5) {
-      BMI = <div style={{ color: 'grey' }}>{BMI}</div>;
-    } else if (BMI >= 18.5 && BMI <25) {
-      BMI = <div style={{ color: 'green' }}>{BMI}</div>
-    }
-    else if (BMI >= 25 && BMI <30) {
-      BMI = <div style={{ color: 'orange' }}>{BMI}</div>
-    }
-    else if (BMI >= 30) {
-      BMI = <div style={{ color: 'red' }}>{BMI}</div>
+
+    if (userInfo[0].height === 0) {
+      BMI = <div style={{ color: 'blue' }}>Need HEIGHT for BMI <button id='height'>Update</button></div>;
+    } else {
+      BMI = (((historyData[historyData.length - 1].weight) / (userInfo[0].height) ** 2) * 703).toFixed(2);
+      // userInfoCopy = JSON.parse(JSON.stringify(userInfo));
+      // if (historyData.length === 0) {
+      //   //console.log("use userInfo", userInfo);
+      //   // userInfoCopy = JSON.parse(JSON.stringify(userInfo));
+      //   BMI = (((userInfoCopy[0].weight) / (userInfoCopy[0].height) ** 2) * 703).toFixed(2);
+      // } else {
+      //   //console.log("use historyData and userInfo", historyData, userInfo);
+      //   // historyCopy = JSON.parse(JSON.stringify(historyData));
+      //   // userInfoCopy = JSON.parse(JSON.stringify(userInfo));
+      //   BMI = (((historyCopy[historyCopy.length - 1].weight) / (userInfoCopy[0].height) ** 2) * 703).toFixed(2);
+      // }
+      console.log("BMI", BMI);
+
+      if (BMI < 18.5) {
+        BMI = <div style={{ color: 'grey' }}>{BMI}</div>;
+      } else if (BMI >= 18.5 && BMI < 25) {
+        BMI = <div style={{ color: 'green' }}>{BMI}</div>;
+      }
+      else if (BMI >= 25 && BMI < 30) {
+        BMI = <div style={{ color: 'orange' }}>{BMI}</div>;
+      }
+      else if (BMI >= 30) {
+        BMI = <div style={{ color: 'red' }}>{BMI}</div>;
+      }
     }
   }
-
 
   return (
     <div>

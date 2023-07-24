@@ -17,15 +17,36 @@ export const Goal = ({ historyData, getData }) => {
   let startWeight;
   let diffFromStart;
   let diffFromGoal;
+  let progressAndPlan;
 
     if (historyData) {
     //historyCopy = JSON.parse(JSON.stringify(historyData));
     //userInfoCopy = JSON.parse(JSON.stringify(userInfo));
     startWeight = userInfo[0].weight
     userGoal = userInfo[0].goal
-    mostRecentWeight = historyData[historyData.length-1].weight
+    mostRecentWeight = historyData[historyData.length - 1].weight
     diffFromStart = (startWeight - mostRecentWeight).toFixed(1)
     diffFromGoal = (mostRecentWeight - userGoal).toFixed(1)
+      if (mostRecentWeight == 0) {
+        console.log("please??");
+        progressAndPlan =
+          <div>
+            <h3>Please update STARTING WEIGHT/GOAL</h3>
+            <button>Update</button>
+          </div>
+      } else {
+        progressAndPlan =         <div>
+        <div className='progress'>
+          {mostRecentWeight < startWeight ? <h3>You lost <div style={{ color: 'blue' }}>{diffFromStart} lb </div> since you started.</h3> : <h3>You gain <div style={{ color: 'blue' }}>{ Math.abs(diffFromStart) } lb </div> since you started</h3>}
+        </div>
+        {/* <h3>{ mostRecentWeight-userGoal} lb to go. YOU GOT THIS!!</h3> */}
+        <div className='plan'>
+          {mostRecentWeight - userGoal > 0 ? <h3><div style={{ color: 'red' }}>{diffFromGoal} lb </div> to go. YOU GOT THIS!!</h3> : <div style={{ color: 'green' }}><h3>You reached your GOAL! GREAT JOB!</h3></div>}
+        </div>
+        </div>
+      }  
+    // diffFromStart = (startWeight - mostRecentWeight).toFixed(1)
+    // diffFromGoal = (mostRecentWeight - userGoal).toFixed(1)
     console.log(diffFromStart)
   }
 
@@ -56,22 +77,21 @@ export const Goal = ({ historyData, getData }) => {
   const updateGoal = () => {
     toggleModal()
 
-    if (newGoal) {
-      fetch('/newgoal', {
+  if (newGoal) {
+    fetch('/newgoal', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ newGoal: Number(newGoal), userId: userId })
+    })
+    .then(data => data.json())
+    .then(data => {
+      console.log('hellllooo????')
+      getData();
+      //console.log('data is fetched');
       })
-      .then(data => data.json())
-        .then(data => {
-          console.log('hellllooo????')
-          getData();
-          //console.log('data is fetched');
-        })
       .catch(err => console.log("error in saving history", err));
     }
   }
-
 
 
   return (
@@ -95,14 +115,8 @@ export const Goal = ({ historyData, getData }) => {
           }
         {/* </h2> */}
         {/* <h3>You started from {startWeight} lb</h3> */}
-        <div className='progress'>
-          {mostRecentWeight < startWeight ? <h3>You lost <div style={{ color: 'blue' }}>{diffFromStart} lb </div> since you started.</h3> : <h3>You gain <div style={{ color: 'blue' }}>{ Math.abs(diffFromStart) } lb </div> since you started</h3>}
+        {progressAndPlan}
         </div>
-        {/* <h3>{ mostRecentWeight-userGoal} lb to go. YOU GOT THIS!!</h3> */}
-        <div className='plan'>
-          {mostRecentWeight - userGoal > 0 ? <h3><div style={{ color: 'red' }}>{diffFromGoal} lb </div> to go. YOU GOT THIS!!</h3> : <div style={{ color: 'green' }}><h3>You reached your GOAL! GREAT JOB!</h3></div>}
-        </div>
-      </div>
     </div>
   )
 }

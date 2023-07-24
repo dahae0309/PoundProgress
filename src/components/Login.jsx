@@ -6,7 +6,7 @@ import { Signup } from './Signup.jsx';
 import pp2 from '../assets/pp2.jpg'
 
 
-export const Login = () => {
+export const Login = (oauthInfo) => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -32,16 +32,46 @@ export const Login = () => {
       //console.log("updated userId in Login", userId, userInfo)
       return navigate("/dashboard");
      }
-   })
+  })
+
+  //login with Oauth/////////////////////////
+  // if (oauthInfo.oauthInfo!==undefined) {
+  //   console.log('oauthInfo in login', oauthInfo);
+  //   // const username = oauthInfo.oauthInfo[0].toLowerCase() + oauthInfo.oauthInfo.slice(1)
+  //   // const password = oauthInfo.oauthInfo[0].toLowerCase() + oauthInfo.oauthInfo.slice(1)
+  //   const username = oauthInfo.oauthInfo
+  //   const password = oauthInfo.oauthInfo
+
+  //   //console.log(username, password);
+
+  //   fetch('/login', {
+  //     method: 'POST',
+  //     //  mode:'no-cors',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ username, password })
+  //   })
+  //     .then(data => data.json())
+  //     .then(data => {
+  //       if (data.status === "verified") {
+  //         setUserId(data.id);
+  //       } else {
+  //         alert(data.status);
+  //       }
+  //     })
+
+  //     .catch(err => console.log('error in login', err));
+  // } 
+  ////////////////////////////////////////////////// 
+
 
   const loginUser = ()=> {
-   fetch('/login', {
-   method: 'POST',
-  //  mode:'no-cors',
-  headers: { 'Content-Type': 'application/json' },
-   body: JSON.stringify({username, password})
- })
-  .then(data => data.json())
+    fetch('/login', {
+    method: 'POST',
+    //  mode:'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({username, password})
+    })
+    .then(data => data.json())
     .then(data => {
       //console.log("login data:", data);
       if (data.status === "verified") {

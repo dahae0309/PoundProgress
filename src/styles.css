@@ -176,6 +176,7 @@ font-weight: bold;
   box-shadow: 2px 2px 4px 2px rgba(0,0,0,.2);
   width: 50%;
   min-width: 20vw;
+  /* max-width: 30vw; */
   /* max-width: 30%; */
   background-color: rgb(248, 240, 240);
 }
@@ -187,6 +188,7 @@ font-weight: bold;
 
 .current-BMI h2{
   margin-right: 14px;
+  min-width: 142px
 }
 
 /* .BMI h3 {
@@ -218,7 +220,7 @@ font-weight: bold;
   justify-content: space-evenly;
 }
 
-#goal-container button{
+#goal-container button, #height{
   width: 7vw;
   height: 2vw;
   font-size: 1vw;
@@ -226,6 +228,10 @@ font-weight: bold;
   outline: none;
   border: none;
   border-radius: 3px;
+}
+
+#height{
+  margin-top: 14px;
 }
 
 /* .btn-modal{
@@ -265,6 +271,7 @@ font-weight: bold;
   border-radius: 3px;
   max-width: 600px;
   min-width: 300px;
+  min-height: 300px;
 }
 
 .modal-content p{
@@ -304,7 +311,7 @@ font-weight: bold;
 
 /* CHART********************** */
 #chart {
-  position: relative;
+  position: static;
   right: 0;
   height: 50vh;
   width: 60vw;
@@ -532,10 +539,23 @@ text-decoration: none;
   min-width: 16vw; 
 } 
 
+.oauth{
+  transform: scale(1.6);
+  margin-top: 3%;
+  margin-left: 24%;
+  /* height: 10%; */
+    float:none;
+  position:static;
+  display:block;
+  margin:auto;
+  width:max-content;
+  /* height: max-content; */
+}
 .newAccount {
   font-size: 1vw;
   justify-content: flex-start;
 }
+
 
 /* SIGNUP page********************** */
 .signup-container {
