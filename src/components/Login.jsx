@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate, Form, Link, useActionData } from 'react-router-dom';
-import { userContext, pageContext } from '../context';
+import { userContext, pageContext, loggedInContext } from '../context';
 import { Signup } from './Signup.jsx';
 // import pp from '../assets/pp.jpg'
 import pp2 from '../assets/pp2.jpg'
@@ -11,6 +11,7 @@ export const Login = (oauthInfo) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { userId, setUserId } = useContext(userContext);
+  const { loggedIn, setLoggedIn } = useContext(loggedInContext);
   //const { userInfo, setUserInfo } = useContext(userContext);
   // const { userGender, setUserGender } = useContext(userContext);
   // const { userHeight, setUserHeight } = useContext(userContext);
@@ -77,6 +78,7 @@ export const Login = (oauthInfo) => {
       if (data.status === "verified") {
         //console.log('data.userInfo', data.id);
         setUserId(data.id)
+        setLoggedIn(!loggedIn)
         // setUserInfo(data.userInfo.userInfo)
         // setUserGender(data.userInfo.gender)
         // setUserWeight(data.userInfo.weight)

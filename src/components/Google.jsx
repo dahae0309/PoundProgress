@@ -2,16 +2,19 @@ import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate, Form, Link, useActionData } from 'react-router-dom';
-import { userContext, pageContext } from '../context';
+import { userContext, oauthContext, pageContext } from '../context';
+import { Signup } from './Signup';
 
 export const Google = () => {
   
   const navigate = useNavigate();
   const [Username, setUsername] = useState('');
   const [Password, setPassword] = useState('');
+  const [nextPage, setPage] = useState(false)
+  const [oauth, setOauth] = useState(false)
+  // const [oauthInfo, setOauthInfo] = useState({});
   const { userId, setUserId } = useContext(userContext);
-  const [nextPage, setPage ] = useState('false')
-  const [oauthInfo, setOauthInfo] = useState();
+  const { oauthInfo, setOauthInfo } = useContext(oauthContext);
 
   // let username;
   // let password;
@@ -25,24 +28,24 @@ export const Google = () => {
   //   goal: 0
   // }
 
-  const oauthSignup = async (infoForBody) => {
-    await fetch('/oauth/signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(infoForBody)
-      })
-      .then(data => data.json())
-      .then(data => { 
-        //console.log('data after signup', data);
-        if (data.status === "Existing Username") {
-          alert("Please choose different username");
-        } else {
-          setPage(true);
-          setUserId(data.id);
-        }
-      })
-      .catch(err=>console.log('error in signup', err))
-   }
+  // const oauthSignup = async (infoForBody) => {
+  //   await fetch('/oauth/signup', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify(infoForBody)
+  //     })
+  //     .then(data => data.json())
+  //     .then(data => { 
+  //       //console.log('data after signup', data);
+  //       if (data.status === "Existing Username") {
+  //         alert("Please choose different username");
+  //       } else {
+  //         setPage(true);
+  //         setUserId(data.id);
+  //       }
+  //     })
+  //     .catch(err=>console.log('error in signup', err))
+  //  }
 
   const oauthLogin = async(username, password) => {
       await fetch('/oauth/login', {
@@ -56,16 +59,20 @@ export const Google = () => {
         if (data.status === "verified") {
           setUserId(data.id);
         } else {
-          const infoForBody = {
-            username: username,
-            password: password,
-            gender: 'need info',
-            height: 0,
-            weight: 0,
-            goal: 0
-          }
-          //console.log(infoForBody)
-          oauthSignup(infoForBody)
+          // const infoForBody = {
+          //   username: username,
+          //   password: password,
+          //   gender: 'need info',
+          //   height: 0,
+          //   weight: 0,
+          //   goal: 0
+          // }
+          // //console.log(infoForBody)
+          // oauthSignup(infoForBody)
+
+          // return navigate("/signup")
+
+          setOauthInfo(username)
         }
       })
       .catch(err => console.log('error in login', err));
@@ -77,7 +84,7 @@ export const Google = () => {
     // const password = Password[0].toLowerCase() + Password.slice(1)
     const username = Username
     const password = Password
-    console.log(username,password)
+    //console.log(username,password)
     // username = oauthInfo
     // password = oauthInfo
 
@@ -89,6 +96,9 @@ export const Google = () => {
     if (userId) {
       //console.log("updated userId in Login", userId, userInfo)
       return navigate("/dashboard");
+    }
+    if (oauthInfo) {
+      return navigate("/signup");
      }
     })
   
@@ -99,7 +109,7 @@ export const Google = () => {
         <GoogleLogin
           onSuccess={credentialResponse => {
             const decoded = jwt_decode(credentialResponse.credential);
-            console.log(decoded.name);
+            //console.log(decoded.name);
             setUsername(decoded.name);
             setPassword(decoded.name)
           }}

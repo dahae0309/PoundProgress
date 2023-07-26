@@ -4,6 +4,9 @@
   "description": "",
   "main": "server/server.js",
   "proxy": "http://localhost:3000/",
+  "cross_origin_opener_policy": {
+    "value": "same-origin-allow-popups"
+  },
   "scripts": {
     "dev": "webpack-dev-server --mode development --open --hot",
     "start": "concurrently \"cross-env NODE_ENV=development nodemon server/server.js\" \"cross-env NODE_ENV=development webpack server --open\"",

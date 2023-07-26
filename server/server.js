@@ -9,6 +9,7 @@ const userController = require('./controller/userController');
 const loginController = require('./controller/loginController');
 const signupController = require('./controller/signupController');
 const goalController = require('./controller/goalController');
+const infoController = require('./controller/infoController');
 
 const authRouter = require('../src/misc/routes/oauth')
 
@@ -69,6 +70,16 @@ app.put('/history', userController.saveHistory,
   });
 
 app.put('/newgoal', goalController.newGoal,
+  (req, res) => {
+    return res.status(200).json(res.locals)
+  });
+
+app.put('/update', infoController.updateInfo,
+  (req, res) => {
+    return res.status(200).json(res.locals)
+  });
+
+app.put('/update/weight', infoController.updateWeight,
   (req, res) => {
     return res.status(200).json(res.locals)
   });

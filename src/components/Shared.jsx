@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate, Form, NavLink, useActionData, Outlet, useLocation } from 'react-router-dom';
-import { userContext, userInfoContext } from '../context';
+import { userContext, userInfoContext, oauthContext, loggedInContext } from '../context';
 import logo from '../assets/ppmain1.png'
 
 export const Shared = () => {
@@ -9,32 +9,73 @@ export const Shared = () => {
   const { userId, setUserId } = useContext(userContext);
   //const { userName, setUserName } = useContext(userInfoContext);
   const { userInfo, setUserInfo } = useContext(userInfoContext);
-
-  console.log("here!!", userInfo)
+  const { oauthInfo, setOauthInfo } = useContext(oauthContext);
+  const { loggedIn, setLoggedIn } = useContext(loggedInContext);
+  const navigate = useNavigate();
+  //console.log("userInfo", userInfo)
   
+  useEffect(() => {
+    //console.log('updated??', userId)
+    console.log('loggedIn??',loggedIn)
+  })
+
   const logOut = () => {
     setUserId(null)
     setUserInfo(null)
+
+  ////////////////////////////////////////////////////
+  //////need to track loggedIn data and correct it!!!!
+  ////////////////////////////////////////////////////
+
+    setLoggedIn(!loggedIn)
+    setOauthInfo(null)
+    if (!loggedIn) {
+      return navigate('/')
+     }
   }
+
+  // const backToHome = () => {
+  //   return navigate("/");
+  // }
   let button;
+
+  // if (locationURL === '/') {
+  //   button = null;
+  // } else if (locationURL === '/contact' || locationURL === '/privacy' && userId) {
+  //   button = <button ><NavLink to="/dashboard">Dashboard</NavLink></button>;
+  // } else if (locationURL === '/contact' || locationURL === '/privacy' && userId ===null) {
+  //   button = <button ><NavLink to="/" end>Home</NavLink></button>;
+  // } else if ((locationURL === '/signup' || locationURL === '/contact' || locationURL === '/privacy') && (userId == null || oauthInfo == null)) {
+  //   button = <button ><NavLink to="/" end>Home</NavLink></button>;
+  //   // button = <button on onClick={backToHome}>Home</button>;
+  // } else if ((locationURL === '/signup' || locationURL === '/contact' || locationURL === '/privacy') && (userId == null )) {
+  //   button = <button ><NavLink to="/" end>Home</NavLink></button>;
+  //   // button = <button on onClick={backToHome}>Home</button>;
+  // }else if (locationURL === '/dashboard'){
+  //   button = <button onClick={logOut}><NavLink to="/">Log Out</NavLink></button>
+  // }
   if (locationURL === '/') {
     button = null;
-  } else if (locationURL === '/signup' || locationURL === '/contact' || locationURL === '/privacy') {
-    button = <button onClick={logOut}><NavLink to="/">Home</NavLink></button>;
-  } else {
+  } else if ((locationURL === '/contact' || locationURL === '/privacy') && loggedIn) {
+    button = <button ><NavLink to="/dashboard" end>Dashboard</NavLink></button>;
+    // button = <button on onClick={backToHome}>Home</button>;
+  } else if ((locationURL === '/contact' || locationURL === '/privacy' || locationURL === '/signup') && !loggedIn) {
+    button = <button onClick={logOut}><NavLink to="/" end>Home</NavLink></button>;
+    // button = <button on onClick={backToHome}>Home</button>;
+  }else if (locationURL === '/dashboard' && loggedIn){
     button = <button onClick={logOut}><NavLink to="/">Log Out</NavLink></button>
   }
 
   let footer;
   if (locationURL === '/' || locationURL === '/signup' || locationURL === '/dashboard') {
       footer = <div className='footer-nav'>
-          <button onClick={logOut}><NavLink to="/contact">Contact Us</NavLink></button>
-          <button onClick={logOut}><NavLink to="/privacy">Privacy</NavLink></button>  
+          <button ><NavLink to="/contact">Contact Us</NavLink></button>
+          <button ><NavLink to="/privacy">Privacy</NavLink></button>  
         </div>
   } else if (locationURL === '/contact') {
-    footer = <button onClick={logOut}><NavLink to="/privacy">Privacy</NavLink></button>  
+    footer = <button ><NavLink to="/privacy">Privacy</NavLink></button>  
   } else if(locationURL === '/privacy'){
-    footer = <button onClick={logOut}><NavLink to="/contact">Contact Us</NavLink></button>
+    footer = <button ><NavLink to="/contact">Contact Us</NavLink></button>
     }
   
 

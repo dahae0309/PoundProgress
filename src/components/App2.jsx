@@ -9,7 +9,7 @@ import { Shared } from './Shared';
 import { Contact } from './Contact';
 import { Privacy } from './Privacy';
 import { Google } from './Google';
-import { userContext, userInfoContext } from '../context';
+import { userContext, userInfoContext, oauthContext, loggedInContext } from '../context';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,7 +27,10 @@ const router = createBrowserRouter(
 
 const App = ()=> {
   const [ userId, setUserId ] = useState(null); 
-  const [ userInfo, setUserInfo ] = useState(null); 
+  const [userInfo, setUserInfo] = useState(null); 
+  const [oauthInfo, setOauthInfo] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
+  
   return (
     // <div className="wrapper">
     //   <BrowserRouter>
@@ -39,9 +42,13 @@ const App = ()=> {
 
     // </div>
     <userContext.Provider value={{ userId, setUserId }}>
-      <userInfoContext.Provider value={{userInfo, setUserInfo}}>
-          <RouterProvider router={router} />
-    </userInfoContext.Provider>
+      <userInfoContext.Provider value={{ userInfo, setUserInfo }}>
+        <oauthContext.Provider value={{ oauthInfo, setOauthInfo }}>
+          <loggedInContext.Provider value={{loggedIn, setLoggedIn}}>
+            <RouterProvider router={router} />
+          </loggedInContext.Provider>
+        </oauthContext.Provider>
+      </userInfoContext.Provider>
     </userContext.Provider>
   );
 }

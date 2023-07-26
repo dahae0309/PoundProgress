@@ -13,8 +13,8 @@ export const BMI = ({ historyData }) => {
   let BMI;
   const noBMI = "Please enter your weight to calculate your BMI"
 
-  console.log("historyData:", historyData)
-  console.log("userInfo:", userInfo)
+  //console.log("historyData:", historyData)
+  //console.log("userInfo:", userInfo)
   
   // if (userInfo[0].height === 0) {
   //   console.log("here!!!!!!!!!!!!!!!!!!!!")
@@ -22,11 +22,15 @@ export const BMI = ({ historyData }) => {
   //  }
 
 
+  useEffect(() => {
+    console.log(userInfo)
+  }, [userInfo]);
+
   if (historyData) {
     //historyCopy = JSON.parse(JSON.stringify(historyData));
 
     if (userInfo[0].height === 0) {
-      BMI = <div style={{ color: 'blue' }}>Need HEIGHT for BMI <button id='height'>Update</button></div>;
+      BMI = <div style={{ color: 'blue' }}>Please update your information<button id='height'>Update</button></div>;
     } else {
       BMI = (((historyData[historyData.length - 1].weight) / (userInfo[0].height) ** 2) * 703).toFixed(2);
       // userInfoCopy = JSON.parse(JSON.stringify(userInfo));
@@ -63,8 +67,8 @@ export const BMI = ({ historyData }) => {
           {/* <h2>Your BMI is {((historyCopy?.pop().weight)/(userInfoCopy?.pop().height**2) * 703).toFixed(2)}</h2> */}
           {/* <h2>Your BMI is {BMI!==null? BMI: noBMI}</h2> */}
           <div className='current-BMI'>
-            <h2>Your BMI is</h2>
-            <h2> {BMI}</h2>
+            <h2 className='BMIis'>Your BMI is</h2>
+            <h2 className='actualBMI'> {BMI}</h2>
           </div>
           <h2>BMI Range</h2>
           <div style={{ color: 'grey' }}><h3>Below 18.5 : Underweight</h3></div>
