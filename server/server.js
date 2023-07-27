@@ -25,81 +25,78 @@ app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../src/index.html'));
 });
 
-
+//regular LOGIN/SIGNUP ////////////////
 app.post('/login', loginController.verification,
   (req, res) => {
     console.log('hi')
     return res.status(200).json(res.locals)
-    //res.sendFile(path.resolve(__dirname, '../src/components/Homepage2.jsx'))
-  })
+})
 
 app.post('/signup', signupController.signup,signupController.firstHistory,
   (req, res) => {
     console.log('signed up')
     return res.status(200).json(res.locals)
-    //res.sendFile(path.resolve(__dirname, '../src/components/Homepage2.jsx'))
-  })
+})
 
-//google Oauth
-// app.get('/oauth', authRouter)
+//google Oauth////////////////
 app.post('/oauth/login', loginController.verification,
   (req, res) => {
     console.log('Oauth login')
     return res.status(200).json(res.locals)
-  });
+});
 
-app.post('/oauth/signup', signupController.signup, signupController.firstHistory,
-  (req, res) => {
-    console.log('Oauth sign up')
-    return res.status(200).json(res.locals)
-  })
+// app.post('/oauth/signup', signupController.signup, signupController.firstHistory,
+//   (req, res) => {
+//     console.log('Oauth sign up')
+//     return res.status(200).json(res.locals)
+//  })
+
 //////////////////////////////
 
+//GET ALL HISTORY////////////////
 app.post('/history', userController.getUserInfo, userController.getAllHistory,
   (req, res) => {
     return res.status(200).json(res.locals)
-  })
-// app.post('/login', userController.logIn,
-//   (req, res) => {
-//     return res.status(200)
-//   });
+})
 
+//ADD NEW WEIGHT TO HISTORY////////////////
 app.put('/history', userController.saveHistory,
   (req, res) => {
     return res.status(200).json(res.locals.history)
-  });
+});
 
+//UPDATE NEW GOAL////////////////
 app.put('/newgoal', goalController.newGoal,
   (req, res) => {
     return res.status(200).json(res.locals)
-  });
+});
 
-app.put('/update', infoController.updateInfo,
-  (req, res) => {
-    return res.status(200).json(res.locals)
-  });
+//UPDATE USER INFO////////////////
+// app.put('/update', infoController.updateInfo,
+//   (req, res) => {
+//     return res.status(200).json(res.locals)
+// });
 
-app.put('/update/weight', infoController.updateWeight,
-  (req, res) => {
-    return res.status(200).json(res.locals)
-  });
+//UPDATE USER INFO////////////////
+// app.put('/update/weight', infoController.updateWeight,
+//   (req, res) => {
+//     return res.status(200).json(res.locals)
+// });
 
-app.delete('/delete', userController.deleteHistory,
-  (req, res) => {
-    return res.status(200).json('removed')
-  });
-   
+//UPDATE USER STARTING WEIGHT////////////////
+// app.delete('/delete', userController.deleteHistory,
+//   (req, res) => {
+//     return res.status(200).json('removed')
+// });   
 
 app.use('*', (req,res) => {
   res.status(404).send('Not Found');
 });
 
-
 app.use((err, req, res, next) => {
   console.log(err);
   res.status(500).send({ error: err });
 });
-
 
 app.listen(PORT, ()=>{ console.log(`Listening on port ${PORT}...`); });
 

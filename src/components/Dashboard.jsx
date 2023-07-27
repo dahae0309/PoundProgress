@@ -13,10 +13,6 @@ const Dashboard = () => {
   const { userId, setUserId } = useContext(userContext);
   const { userInfo, setUserInfo } = useContext(userInfoContext);
 
-  // const sortedHistory = historyData?.slice().sort((a,b)=>a.id-b.id) 
-
-  //console.log("userId", userId)  // it works now!!! need to update logs/charts according to userId
-
   const onChange = (e) => {
     const input = e.target.value;
     setInputWeight(input);
@@ -83,21 +79,16 @@ const Dashboard = () => {
         <Weight
           onChange={onChange}
           saveHistory={saveHistory}
-          // inputWeight={inputWeight}
-          // setInputWeight={setInputWeight}
         />
         <div className="middle-box">
           <WklyHistory
             historyData={historyData}
-            // setHistoryData={setHistoryData}
             deleteHistory={deleteHistory}
           />
           <div className="bmi-goal-chart">
             <div className="bmi-goal">
               <BMI
-                // userId={userId}
                 historyData={historyData}
-                //userInfo={userInfo}
               />
               <Goal
                 getData={getData}
@@ -112,12 +103,11 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-              <div className="dashboard-image">
-        <img src='../assets/pp3.jpg' className="image" alt="image" />
-        <p className="dashboard-image-quote">"Nothing is impossible. The word itself says I'm possible."</p>
+        <div className="dashboard-image">
+          <img src='../assets/pp3.jpg' className="image" alt="image" />
+          <p className="dashboard-image-quote">"Nothing is impossible. The word itself says I'm possible."</p>
+        </div>
       </div>
-      </div>
-
     </div>
   );
 }

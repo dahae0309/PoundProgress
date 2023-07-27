@@ -1,8 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React from 'react';
 
 export const Privacy = () => {
-  //console.log("hello??????");
-
 
 return (
   <div className="privacy">

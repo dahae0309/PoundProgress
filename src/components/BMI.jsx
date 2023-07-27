@@ -1,26 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useContext } from 'react';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
-import { userContext, userInfoContext } from '../context';
+import { userInfoContext } from '../context';
 
 
 export const BMI = ({ historyData }) => {
-  //const { userId, setUserId } = useContext(userContext);
+
   const { userInfo, setUserInfo } = useContext(userInfoContext);
-    //const [BMI, setBMI] = useState('');
-  // let historyCopy;
-  // let userInfoCopy;
   let BMI;
   const noBMI = "Please enter your weight to calculate your BMI"
-
-  //console.log("historyData:", historyData)
-  //console.log("userInfo:", userInfo)
-  
-  // if (userInfo[0].height === 0) {
-  //   console.log("here!!!!!!!!!!!!!!!!!!!!")
-  //   BMI = <div style={{ color: 'black' }}>Need info</div>
-  //  }
-
 
   useEffect(() => {
     console.log(userInfo)
@@ -33,18 +21,8 @@ export const BMI = ({ historyData }) => {
       BMI = <div style={{ color: 'blue' }}>Please update your information<button id='height'>Update</button></div>;
     } else {
       BMI = (((historyData[historyData.length - 1].weight) / (userInfo[0].height) ** 2) * 703).toFixed(2);
-      // userInfoCopy = JSON.parse(JSON.stringify(userInfo));
-      // if (historyData.length === 0) {
-      //   //console.log("use userInfo", userInfo);
-      //   // userInfoCopy = JSON.parse(JSON.stringify(userInfo));
-      //   BMI = (((userInfoCopy[0].weight) / (userInfoCopy[0].height) ** 2) * 703).toFixed(2);
-      // } else {
-      //   //console.log("use historyData and userInfo", historyData, userInfo);
-      //   // historyCopy = JSON.parse(JSON.stringify(historyData));
-      //   // userInfoCopy = JSON.parse(JSON.stringify(userInfo));
-      //   BMI = (((historyCopy[historyCopy.length - 1].weight) / (userInfoCopy[0].height) ** 2) * 703).toFixed(2);
-      // }
-      console.log("BMI", BMI);
+
+      //console.log("BMI", BMI);
 
       if (BMI < 18.5) {
         BMI = <div style={{ color: 'grey' }}>{BMI}</div>;
@@ -64,8 +42,6 @@ export const BMI = ({ historyData }) => {
     <div>
       <div id="BMI-container">
         <div className="BMI">
-          {/* <h2>Your BMI is {((historyCopy?.pop().weight)/(userInfoCopy?.pop().height**2) * 703).toFixed(2)}</h2> */}
-          {/* <h2>Your BMI is {BMI!==null? BMI: noBMI}</h2> */}
           <div className='current-BMI'>
             <h2 className='BMIis'>Your BMI is</h2>
             <h2 className='actualBMI'> {BMI}</h2>
@@ -80,5 +56,3 @@ export const BMI = ({ historyData }) => {
     </div>
   )
 }
-
-//<div id="BMI">BMI: {(currentWeight/(height)**2)* }</div>

@@ -1,19 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { userContext, userInfoContext } from '../context';          
+import { userInfoContext } from '../context';          
 
 export const InfoModal = ({userId, infoModal, setInfoModal, getData, historyData}) => {
 
-  console.log(historyData)
+  //console.log(historyData)
   
   const { userInfo, setUserInfo } = useContext(userInfoContext);
-  // const { userId, setUserId } = useContext(userContext);
   const [gender, setGender] = useState('');
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [goal, setGoal] = useState('');
-  // const [modal, setModal] = useState(true)
+
   const startingWeight = historyData?.slice().sort((a,b)=>a.id-b.id)[0]
-  console.log(startingWeight.id)
+  //console.log(startingWeight.id)
   
   const infoToUpdate = {
     id: userId,
@@ -32,19 +31,16 @@ export const InfoModal = ({userId, infoModal, setInfoModal, getData, historyData
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({id:startingWeight.id, weight: weight})
-      })
-        .then(data => data.json())
-        .then(data => {
-          //console.log('data after update info', data);
-          //console.log('need to finish this function');
-          console.log("start weight has been updated")
-
-        })
-        .catch(err => console.log('error in signup', err));
+    })
+    .then(data => data.json())
+    .then(data => {
+      //console.log('data after update info', data);
+      //console.log('need to finish this function');
+      console.log("start weight has been updated")
+    })
+    .catch(err => console.log('error in signup', err));
   }
   
-  
-
   const updateInfo = () => {
 
     toggleInfoModal()
@@ -52,7 +48,6 @@ export const InfoModal = ({userId, infoModal, setInfoModal, getData, historyData
     if (gender === "" || height === "" || weight === "") {
       alert("Please enter GENDER, HEIGHT, and WEIGHT");
     } else {
-
       fetch('/update', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },

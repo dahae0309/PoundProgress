@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Weight = ({onChange, saveHistory }) => {
   
@@ -13,7 +13,6 @@ const Weight = ({onChange, saveHistory }) => {
         <form onSubmit={handleSubmit}>
           <div>Enter Your Weight</div>
           <input name="weight" type="text" placeholder="lb" onChange={onChange}></input>
-              {/* {weightError ? (<span className="errorMsg">{weightError}</span>) : null} */}
           <button id="save" type="submit" onClick={saveHistory}>Save</button>
         </form>
       </div>

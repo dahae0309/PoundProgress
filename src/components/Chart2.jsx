@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Line } from "react-chartjs-2";
 import Chart from 'chart.js/auto';
-import { userContext, userInfoContext } from '../context';
+import { userInfoContext } from '../context';
 
 
 const BarChart = ({historyData}) => {
@@ -13,7 +13,6 @@ const BarChart = ({historyData}) => {
   const weightHistory = historyData?.map(weightObj => weightObj.weight)
 
   const chartData = {
-    // label: "Your Progress", //which is undefined??
     datasets: [{
       backgroundColor: 'rgba(247, 180, 92)',
       borderColor: 'rgba(0,0,0,1)',
@@ -53,7 +52,6 @@ const BarChart = ({historyData}) => {
         plugins: {
             legend: {
                 labels: {
-                    // This more specific font property overrides the global property
                     font: {
                     size: 30
                     }
@@ -67,6 +65,5 @@ const BarChart = ({historyData}) => {
     </div>
   );
 }
-
 
 export default BarChart;

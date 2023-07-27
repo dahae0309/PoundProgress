@@ -1,11 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useNavigate, Form, Link, useActionData } from 'react-router-dom';
-import { userContext, pageContext } from '../context';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { Signup } from './Signup.jsx';
 import { Login } from './Login.jsx';
 import { Google } from './Google.jsx';
-// import pp from '../assets/pp.jpg'
-//import pp2 from '../assets/pp2.jpg'
+
+import pp from '../assets/pp.jpg'
+import pp2 from '../assets/pp2.jpg'
 import image2 from '../assets/image2.png'
 import image3 from '../assets/image3.png'
 import image4 from '../assets/image4.png'
@@ -13,31 +13,7 @@ import image5 from '../assets/image5.png'
 import image6 from '../assets/image6.png'
 import image7 from '../assets/image7.png'
 
-//for google Oauth
-// import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-// import jwt_decode from "jwt-decode";
-// const dotenv = require('dotenv');
-// dotenv.config();
-
-// function navigate() {
-//   window.location.href = url
-//  }
-
-// const Oauth = async () => {
-//   const response = await fetch('http://localhost:8080/oauth', {
-//     method: 'post'
-//   })
-//   const data = await response.json()
-//   console.log(data)
-//   navigate(data.url)
-// }
-
-//////////////////////////////////
-// const client_id = process.env.CLIENT_ID
-
 export const Welcome = () => {
-
-  // const [oauthInfo, setOauthInfo] = useState();
   
   return (
     <div>
@@ -48,35 +24,12 @@ export const Welcome = () => {
         </div>
         <div className='login-signup-container'> 
           <div>
-            <Login
-              // oauthInfo={oauthInfo}
-            />  
+            <Login />  
           </div>
           <div className='newAccount'> Do not have account? {' '} 
-            <Link to="/signup" element={ <Signup />}>Sign Up</Link>
+            <Link to="/signup" element={<Signup />}>Sign Up</Link>
           </div>
           <br></br>
-          {/* <div className='oauth'>
-            <GoogleOAuthProvider clientId={process.env.CLIENT_ID}>
-              <GoogleLogin
-                onSuccess={credentialResponse => {
-                  var decoded = jwt_decode(credentialResponse.credential);
-                  console.log(decoded.name);
-                  setOauthInfo(decoded.name)
-                }}
-                onError={() => {
-                  console.log('Login Failed');
-                }}
-                size='large'
-                width="200"
-                height="300"
-                // shape="pill"
-                style={{width: "50%"}}
-                //width= 'document.getElementById("GoogleSignInButton").offsetWidth'
-                //height= 'document.getElementById("GoogleSignInButton").offsetHeight'
-              />
-            </GoogleOAuthProvider>
-          </div> */}
           <div>
             <Google />
           </div>

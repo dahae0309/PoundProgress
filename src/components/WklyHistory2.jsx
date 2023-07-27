@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
-import { userContext, userInfoContext } from '../context';
+import { userInfoContext } from '../context';
 
 const WklyHistory = ({ historyData, deleteHistory }) => {
 
   //console.log("historyData:", historyData)
   // let sortedHistory = historyData?.slice().sort((a,b)=>a.id-b.id)
   // console.log("sortedHistoryData:",sortedHistory)
+
   const element = <FontAwesomeIcon icon={faTrashCan} />
   const { userInfo, setUserInfo } = useContext(userInfoContext);
   //<FontAwesomeIcon icon="fa-solid fa-trash-can-xmark" />
@@ -20,6 +21,7 @@ const WklyHistory = ({ historyData, deleteHistory }) => {
     startWeight = userInfo[0].weight
     startDate = new Date(userInfo[0].created_at).toLocaleString()
   }
+  
   return (
     <div id="historySection">
       {/* <div id="history">Your History</div> */}

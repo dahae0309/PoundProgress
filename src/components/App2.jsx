@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
-//import createBrowserRouter from 'react-router-dom'
 import Dashboard from './Dashboard';
 import { Welcome } from './Welcome';
 import { Login } from './Login';
@@ -32,15 +31,7 @@ const App = ()=> {
   const [loggedIn, setLoggedIn] = useState(false);
   
   return (
-    // <div className="wrapper">
-    //   <BrowserRouter>
-    //     <Routes>
-    //       <Route path="/" element={ <Login />}/>
-    //       <Route path="/homepage" element={ <Homepage />} />
-    //     </Routes>
-    //   </BrowserRouter>
-
-    // </div>
+  
     <userContext.Provider value={{ userId, setUserId }}>
       <userInfoContext.Provider value={{ userInfo, setUserInfo }}>
         <oauthContext.Provider value={{ oauthInfo, setOauthInfo }}>
@@ -54,30 +45,3 @@ const App = ()=> {
 }
 
 export default App;
-
-
-//{userInfo, setUserInfo}
-// import React from 'react';
-// import Homepage from './Homepage2.jsx';
-// import Login from './Login.jsx';
-// import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-// const App = () => {
-//   return (
-//       <div className="wrapper">
-//       <BrowserRouter>
-//         <Switch>
-//           <Route path="/">
-//             <Homepage />
-//           </Route>
-//           <Route path="/login">
-//             <Login />
-//           </Route>
-//         </Switch>
-//       </BrowserRouter>
-//     </div>
-//   );
-  
-// }
-
-// export default App;
