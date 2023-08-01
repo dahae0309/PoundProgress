@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { userContext, loggedInContext } from '../context';
 
 import pp from '../assets/pp.jpg'
-import pp2 from '../assets/pp2.jpg'
+// pp2 from '../assets/pp2.jpg'
 
 export const Login = (oauthInfo) => {
   const navigate = useNavigate();

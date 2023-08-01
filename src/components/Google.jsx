@@ -38,10 +38,10 @@ export const Google = () => {
   } 
    
   useEffect(() => {
-    //console.log('updated??', userId)
+    //console.log('updated??', userId, oauthInfo)
     if (userId) {
       //console.log("updated userId in Login", userId, userInfo)
-      setLoggedIn(!loggedIn)
+      setLoggedIn(!loggedIn);
       return navigate("/dashboard");
     }
     if (oauthInfo) {
@@ -52,27 +52,21 @@ export const Google = () => {
   return (
     <div>
       <div className='oauth'>
-        <GoogleOAuthProvider clientId={process.env.CLIENT_ID}>
-          <div>
-          <GoogleLogin
-            onSuccess={credentialResponse => {
-              const decoded = jwt_decode(credentialResponse.credential);
-              //console.log(decoded.name);
-              setUsername(decoded.name);
-              setPassword(decoded.name)
-            }}
-            onError={() => {
-              console.log('Login Failed');
-            }}
-            size='large'
-            width="200"
-            height="300"
-            // shape="pill"
-            style={{ width: "50%" }} 
-            />
-          </div>
+      <GoogleOAuthProvider clientId={process.env.CLIENT_ID}>
+        <GoogleLogin
+          onSuccess={credentialResponse => {
+            const decoded = jwt_decode(credentialResponse.credential);
+            //console.log(decoded);
+            setUsername(decoded.name);
+            setPassword(decoded.name)
+          }}
+          onError={() => {
+            console.log('Login Failed');
+          }}
+          size='large'
+        />
         </GoogleOAuthProvider>
-      </div>
+        </div>
     </div> 
   );
 };

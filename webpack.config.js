@@ -81,6 +81,7 @@ module.exports = {
 		},
 		// historyApiFallback: true,
 	},
+
 };
 
 

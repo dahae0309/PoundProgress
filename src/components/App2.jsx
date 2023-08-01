@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Dashboard from './Dashboard';
-import { Welcome } from './Welcome';
+import Welcome from './Welcome';
 import { Login } from './Login';
 import { Signup } from './Signup';
-import { Shared } from './Shared';
+import Shared from './Shared';
 import { Contact } from './Contact';
 import { Privacy } from './Privacy';
 import { Google } from './Google';

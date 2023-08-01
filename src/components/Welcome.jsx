@@ -13,7 +13,7 @@ import image5 from '../assets/image5.png'
 import image6 from '../assets/image6.png'
 import image7 from '../assets/image7.png'
 
-export const Welcome = () => {
+const Welcome = () => {
   
   return (
     <div>
@@ -59,4 +59,6 @@ export const Welcome = () => {
       </div>
     </div>
   )
-}
+};
+
+export default Welcome;

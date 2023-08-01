@@ -3,7 +3,7 @@ import { useNavigate, Form, NavLink, useActionData, Outlet, useLocation } from '
 import { userContext, userInfoContext, oauthContext, loggedInContext } from '../context';
 import logo from '../assets/ppmain1.png'
 
-export const Shared = () => {
+const Shared = () => {
 
   const { pathname: locationURL } = useLocation();
   const { userId, setUserId } = useContext(userContext);
@@ -81,6 +81,7 @@ export const Shared = () => {
   )
 };
 
+export default Shared;
 
     //  {locationURL === '/' || locationURL === '/signup' ? (
     //     <div className='applicationName'>
