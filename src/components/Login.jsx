@@ -16,7 +16,6 @@ export const Login = (oauthInfo) => {
     //console.log('updated??', userId)
     if (userId) {
       //console.log("updated userId in Login", userId, userInfo)
-      console.log('login page', loggedIn)
       setLoggedIn(!loggedIn)
       return navigate("/dashboard");
      }

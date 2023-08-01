@@ -3,16 +3,15 @@ import React, { useEffect, useContext } from 'react';
 //import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import { userInfoContext } from '../context';
 
-
 export const BMI = ({ historyData }) => {
 
   const { userInfo, setUserInfo } = useContext(userInfoContext);
   let BMI;
   const noBMI = "Please enter your weight to calculate your BMI"
 
-  useEffect(() => {
-    console.log(userInfo)
-  }, [userInfo]);
+  // useEffect(() => {
+  //   console.log(userInfo)
+  // }, [userInfo]);
 
   if (historyData) {
     //historyCopy = JSON.parse(JSON.stringify(historyData));

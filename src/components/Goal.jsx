@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { userContext, userInfoContext } from '../context';
-import { InfoModal } from './InfoModal'
+//import { InfoModal } from './InfoModal'
 
 export const Goal = ({ getData, historyData }) => {
 
@@ -30,9 +30,9 @@ export const Goal = ({ getData, historyData }) => {
     setGoalModal(!goalModal)
   }
 
-  const toggleInfoModal = () => {
-    setInfoModal(!infoModal)
-  }
+  // const toggleInfoModal = () => {
+  //   setInfoModal(!infoModal)
+  // }
   
   const updateGoal = () => {
     

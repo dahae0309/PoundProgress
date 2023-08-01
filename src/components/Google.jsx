@@ -68,7 +68,7 @@ export const Google = () => {
             width="200"
             height="300"
             // shape="pill"
-            style={{width: "50%"}}
+            style={{ width: "50%" }} 
             />
           </div>
         </GoogleOAuthProvider>

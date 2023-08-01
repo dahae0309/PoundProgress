@@ -14,11 +14,11 @@ export const Shared = () => {
   const navigate = useNavigate();
   //console.log("userInfo", userInfo)
   
-  useEffect(() => {
+  //useEffect(() => {
     //console.log('updated??', userId)
-    console.log("userInfo", userInfo)
-    console.log('loggedIn??',loggedIn)
-  })
+    //console.log("userInfo", userInfo)
+    //console.log('loggedIn??',loggedIn)
+  //})
 
   const logOut = () => {
     setUserId(null)

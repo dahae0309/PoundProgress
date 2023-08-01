@@ -42,9 +42,8 @@ const Dashboard = () => {
     })
     .then(data => data.json())
       .then(data => {
-        console.log(data)
-        console.log(data.userInfo)
-
+        // console.log(data)
+        // console.log(data.userInfo)
         const sortedHistory = data.history?.slice().sort((a,b)=>a.id-b.id) 
         setHistoryData(sortedHistory);
         setUserInfo(data.userInfo)
