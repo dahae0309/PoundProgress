@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useNavigate, Form, NavLink, useActionData, Outlet, useLocation } from 'react-router-dom';
 import { userContext, userInfoContext, oauthContext, loggedInContext } from '../context';
 import logo from '../assets/ppmain1.png'
+import logo3 from '../assets/logo3.png'
 
 const Shared = () => {
 
@@ -67,7 +68,12 @@ const Shared = () => {
   return (
     <div className='shared'>   
       <div className='applicationName'>
-        <img src='../assets/ppmain1.png' className="main-logo" alt="image" />
+        {/* style.css */}
+        {/* <img src='../assets/ppmain1.png' className="main-logo" alt="image" /> */}
+        {/* style2.css */}
+        <button className='home-button'>
+          <img src='../assets/logo3.png' className="main-logo" alt="image" />
+        </button>
         <div className='welcome-user'>{userInfo ? (<h2>Welcome, {userInfo[0].username}</h2>):(null)}</div>
         {button}
       </div>
