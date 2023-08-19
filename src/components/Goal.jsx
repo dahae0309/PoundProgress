@@ -76,22 +76,76 @@ export const Goal = ({ getData, historyData }) => {
       //     </div>
       // } else {
         //console.log("most recent weight", mostRecentWeight)
-        progressAndPlan = <div>
-                            <div className='progress'>
-                              {mostRecentWeight < startWeight ? <h3>You lost <div style={{ color: 'blue' }}>{diffFromStart} lb </div> since you started.</h3> : <h3>You gain <div style={{ color: 'blue' }}>{ Math.abs(diffFromStart) } lb </div> since you started</h3>}
+    
+
+        //working block
+        // progressAndPlan = <div>
+        //                     <div className='progress'>
+        //                       {mostRecentWeight < startWeight ? <h3>You lost <div style={{ color: 'blue' }}>{diffFromStart} lb </div> since you started.</h3> : <h3>You gain <div style={{ color: 'blue' }}>{ Math.abs(diffFromStart) } lb </div> since you started</h3>}
+        //                     </div>
+        //                     <div className='plan'>
+        //                       {mostRecentWeight - userGoal > 0 ? <h3><div style={{ color: 'red' }}>{diffFromGoal} lb </div> to go. YOU GOT THIS!!</h3> : <div style={{ color: 'green' }}><h3>You reached your GOAL! GREAT JOB!</h3></div>}
+        //                     </div>
+        // </div>
+    console.log(mostRecentWeight, startWeight)
+    console.log(98 < 115)
+    console.log(Number(mostRecentWeight)<Number(startWeight))
+    progressAndPlan = <div>
+                        <div className='progress'>
+                              {/* {mostRecentWeight < startWeight ? <h3>You lost <div style={{ color: 'blue' }}>{diffFromStart} lb </div> since you started.</h3> : <h3>You gain <div style={{ color: 'blue' }}>{ Math.abs(diffFromStart) } lb </div> since you started</h3>} */}
+                          {Number(mostRecentWeight) < Number(startWeight) ? (
+                            <div>
+                              <div style={{ color: 'gray' }}><h2>YOUR PROGRESS:</h2></div>                 
+                              <div className='progress-statement'>
+                                <div><h3>You lost</h3></div>
+                                <div className='diffFromStart' style={{ color: 'blue' }}><h3>{diffFromStart} lb</h3></div>
+                                <div><h3>since you started.</h3></div>
+                              </div>
                             </div>
-                            <div className='plan'>
-                              {mostRecentWeight - userGoal > 0 ? <h3><div style={{ color: 'red' }}>{diffFromGoal} lb </div> to go. YOU GOT THIS!!</h3> : <div style={{ color: 'green' }}><h3>You reached your GOAL! GREAT JOB!</h3></div>}
+                            ) : (
+                            <div>
+                              <div style={{ color: 'gray' }}><h2>YOUR PROGRESS:</h2></div>  
+                              <div className='progress-statement'>
+                                <div><h3>You gain</h3></div>
+                                <div className='diffFromStart' style={{ color: 'blue' }}><h3>{ Math.abs(diffFromStart) } lb</h3></div>
+                                <div><h3>since you started.</h3></div>
+                              </div>
                             </div>
-                          </div>
-      // }  
+                          )}
+                        </div>
+      
+                        <div className='plan'>
+                              {/* {mostRecentWeight < startWeight ? <h3>You lost <div style={{ color: 'blue' }}>{diffFromStart} lb </div> since you started.</h3> : <h3>You gain <div style={{ color: 'blue' }}>{ Math.abs(diffFromStart) } lb </div> since you started</h3>} */}
+                          {mostRecentWeight - userGoal > 0 ? (
+                            <div>
+                              <div style={{ color: 'gray' }}><h2>PLAN FOR GOAL:</h2></div>  
+                              <div className='plan-statement'>
+                                <div className='diffFromGoal' style={{ color: 'red' }}><h3>{diffFromGoal} lb</h3></div>
+                                <div><h3>to go. YOU GOT THIS!!</h3></div>
+                              </div>
+                            </div>
+                            ) : (
+                            <div>
+                              <div style={{ color: 'gray' }}><h2>PLAN FOR GOAL:</h2></div>  
+                              <div className='plan-statement'>
+                                <div style={{ color: 'green' }}><h3>You reached your GOAL! GREAT JOB!</h3></div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+    
+
+
+
+      {/* // }   */}
   }
 
   return (
     <div>
       <div id="goal-container">
         <div className='goal'>
-          <h2>Your Goal:  {userGoal}  </h2>
+          <h2>Your Goal:   <div style={{ color: 'green' }}>{userGoal} </div> </h2>
           <button className="new-goal-button" onClick={toggleGoalModal}>New Goal</button>
         </div>
           {goalModal && (

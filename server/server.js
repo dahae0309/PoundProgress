@@ -83,11 +83,10 @@ app.put('/newgoal', goalController.newGoal,
 //     return res.status(200).json(res.locals)
 // });
 
-//UPDATE USER STARTING WEIGHT////////////////
-// app.delete('/delete', userController.deleteHistory,
-//   (req, res) => {
-//     return res.status(200).json('removed')
-// });   
+app.delete('/delete', userController.deleteHistory,
+  (req, res) => {
+    return res.status(200).json('removed')
+});   
 
 app.use('*', (req,res) => {
   res.status(404).send('Not Found');

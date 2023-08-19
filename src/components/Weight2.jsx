@@ -11,7 +11,7 @@ const Weight = ({onChange, saveHistory }) => {
     <div>
       <div id="weight">
         <form onSubmit={handleSubmit}>
-          <div>Enter Your Weight</div>
+          <div><h2>Enter Your Weight</h2></div>
           <input name="weight" type="text" placeholder="lb" onChange={onChange}></input>
           <button id="save" type="submit" onClick={saveHistory}>Save</button>
         </form>
@@ -19,4 +19,4 @@ const Weight = ({onChange, saveHistory }) => {
     </div>
   );
 };
-export default Weight;
+export default Weight; 

@@ -45,13 +45,15 @@ export const BMI = ({ historyData }) => {
             <h2 className='BMIis'>Your BMI is</h2>
             <h2 className='actualBMI'> {BMI}</h2>
           </div>
-          <h2>BMI Range</h2>
-          <div style={{ color: 'grey' }}><h3>Below 18.5 : Underweight</h3></div>
-          <div style={{ color: 'green' }}><h3>18.5 — 24.9 : Healthy Weight</h3></div>
-          <div style={{ color: 'orange' }}><h3>25.0 — 29.9 : Overweight</h3></div>
-          <div style={{ color: 'red' }}><h3>30.0 and Above : Obesity</h3></div>
+          <div className='bmi-range'>
+            <h2>BMI Range</h2>
+            <div style={{ color: 'grey' }}><h3>Below 18.5 : Underweight</h3></div>
+            <div style={{ color: 'green' }}><h3>18.5 — 24.9 : Healthy Weight</h3></div>
+            <div style={{ color: 'orange' }}><h3>25.0 — 29.9 : Overweight</h3></div>
+            <div style={{ color: 'red' }}><h3>30.0 and Above : Obesity</h3></div>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   )
 }

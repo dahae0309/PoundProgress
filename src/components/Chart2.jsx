@@ -53,7 +53,7 @@ const BarChart = ({historyData}) => {
             legend: {
                 labels: {
                     font: {
-                    size: 30
+                    size: 20
                     }
                 }
             }

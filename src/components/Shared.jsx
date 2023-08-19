@@ -21,6 +21,10 @@ const Shared = () => {
     //console.log('loggedIn??',loggedIn)
   //})
 
+  const logIn = () => {
+    return navigate("/login");
+  }
+
   const logOut = () => {
     setUserId(null)
     setUserInfo(null)
@@ -31,30 +35,53 @@ const Shared = () => {
     }
   }
 
+  const signUp = () => {
+    return navigate("/signup");
+  }
+
   const backToDashboard = () => {
     return navigate("/dashboard");
   }
 
   const backToWelcome = () => {
-    setOauthInfo(null)
+    //setOauthInfo(null)
+    //setUserInfo(null)
+    //setLoggedIn(false)
     return navigate("/");
   }
 
   let button;
   if (locationURL === '/') {
-    button = null;
-  } else if ((locationURL === '/contact' || locationURL === '/privacy') && loggedIn) {
-    button = <button onClick={backToDashboard}><NavLink to="/dashboard" end>Dashboard</NavLink></button>;
-    // button = <button on onClick={backToHome}>Home</button>;
-  } else if ((locationURL === '/contact' || locationURL === '/privacy' || locationURL === '/signup') && !loggedIn) {
-    button = <button onClick={backToWelcome}><NavLink to="/" end>Home</NavLink></button>;
-    // button = <button on onClick={backToHome}>Home</button>;
-  }else if (locationURL === '/dashboard' && loggedIn){
-    button = <button onClick={logOut}><NavLink to="/">Log Out</NavLink></button>
-  }
-
+    //button = null;  
+    if (loggedIn) {
+      button =
+        <div>
+        <button onClick={backToDashboard}><NavLink to="/dashboard" end>Dashboard</NavLink></button>
+        <button onClick={logOut}><NavLink to="/">Log Out</NavLink></button>;
+      </div>;
+    } else {
+    
+      button = <div>
+        <button onClick={logIn}><NavLink to="/login" end>Log In</NavLink></button>
+        <button onClick={signUp}><NavLink to="/signup" end>Sign Up</NavLink></button>;
+      </div>;
+    }
+    } else if ((locationURL === '/contact' || locationURL === '/privacy') && loggedIn) {
+      button = <button onClick={backToDashboard}><NavLink to="/dashboard" end>Dashboard</NavLink></button>;
+      // button = <button on onClick={backToHome}>Home</button>;
+    } else if ((locationURL === '/contact' || locationURL === '/privacy' || locationURL === '/signup' || locationURL === '/login') && loggedIn !== true) {
+      button = <button onClick={backToWelcome}><NavLink to="/" end>Home</NavLink></button>;
+      // button = <button on onClick={backToHome}>Home</button>;
+    } else if (locationURL === '/dashboard' && loggedIn) {
+      button =
+        <div>
+        <button onClick={backToWelcome}><NavLink to="/" end>Home</NavLink></button>;
+        <button onClick={logOut}><NavLink to="/">Log Out</NavLink></button>;
+      </div>;
+    }
+  
   let footer;
-  if (locationURL === '/' || locationURL === '/signup' || locationURL === '/dashboard') {
+  if (locationURL === '/' || locationURL === '/signup' || locationURL === '/dashboard' || locationURL === '/login') {
     footer =  <div className='footer-nav'>
                 <button ><NavLink to="/contact">Contact Us</NavLink></button>
                 <button ><NavLink to="/privacy">Privacy</NavLink></button>  
@@ -71,11 +98,17 @@ const Shared = () => {
         {/* style.css */}
         {/* <img src='../assets/ppmain1.png' className="main-logo" alt="image" /> */}
         {/* style2.css */}
-        <button className='home-button'>
-          <img src='../assets/logo3.png' className="main-logo" alt="image" />
+        <button onClick={backToWelcome}className='home-button'>
+          <NavLink to="/" end>
+            <img src='../assets/logo3.png' className="main-logo" alt="image" />
+          </NavLink>
         </button>
-        <div className='welcome-user'>{userInfo ? (<h2>Welcome, {userInfo[0].username}</h2>):(null)}</div>
-        {button}
+        <div className='navbar-container'>
+          <div className='welcome-user'>{userInfo ? (<h2>Welcome, {userInfo[0].username}</h2>):(null)}</div>
+          <div className='navbar'>
+            {button}
+          </div>
+        </div>
       </div>
       <div>
         <Outlet/>

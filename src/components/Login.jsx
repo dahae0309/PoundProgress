@@ -1,8 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { userContext, loggedInContext } from '../context';
-
+import { Signup } from './Signup.jsx';
+import { Google } from './Google.jsx';
 import pp from '../assets/pp.jpg'
+import pp4 from '../assets/pp4.jpg'
 // pp2 from '../assets/pp2.jpg'
 
 export const Login = (oauthInfo) => {
@@ -14,6 +16,7 @@ export const Login = (oauthInfo) => {
 
   useEffect(() => {
     //console.log('updated??', userId)
+    //console.log(loggedIn)
     if (userId) {
       //console.log("updated userId in Login", userId, userInfo)
       setLoggedIn(!loggedIn)
@@ -49,10 +52,13 @@ export const Login = (oauthInfo) => {
   return(
     <div>     
       <div className="login-wrapper">
+        <img src='../assets/pp4.jpg' className="login-image" alt="image" />
         <div className='login'>
           <div className='login-msg'>
-            <h1>Please Log In</h1>
+            <h1>Welcome Back!</h1>
+            <p>Enter your username and password to log in </p>
           </div>
+          <br></br>
           <label>
             <p>Username</p>
             <input className="login-input" type="text" onChange={e => setUsername(e.target.value)} />
@@ -64,9 +70,16 @@ export const Login = (oauthInfo) => {
           <br></br>
           <br></br>
           <div>
-            <button type="submit" onClick={handleSubmit}>Submit</button>
+            <button type="submit" onClick={handleSubmit}>Log In</button>
           </div>
           <br></br>
+          <div className='newAccount'> Do not have account? {' '} 
+            <Link to="/signup" element={<Signup />}>Sign Up</Link>
+          </div>
+          <br></br>
+          <div>
+            <Google />
+          </div>
         </div>
       </div>
     </div>

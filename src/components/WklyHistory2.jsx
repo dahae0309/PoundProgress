@@ -27,14 +27,16 @@ const WklyHistory = ({ historyData, deleteHistory }) => {
       {/* <div id="history">Your History</div> */}
       <div id="hisContainer">
         <h2>Your History</h2>
-        <h3>You started from {startWeight} lb {'('+ startDate +')'}</h3>
-        {weightLog?.map(weightObj => (
-          <div id="innerBox" key={weightObj.id}>
-            <button id="delete" onClick={() => deleteHistory(weightObj.id)}>{element}</button>
-            <div id="weight">Weight: {weightObj.weight}</div>
-            <div id="createdAt"style={{ color: 'gray' }}>Date:{new Date(weightObj.created_at).toLocaleString()}</div>
-          </div>
-        ))}
+        <h3>You started from {startWeight} lb {'(' + startDate + ')'}</h3>
+          <div className='history'>{weightLog?.map(weightObj => (
+            
+              <div id="innerBox" key={weightObj.id}>
+                <button id="delete" onClick={() => deleteHistory(weightObj.id)}>{element}</button>
+                <div id="weight"><p>Weight: {weightObj.weight}</p></div>
+                <div id="createdAt"style={{ color: 'gray' }}><p>Date:{new Date(weightObj.created_at).toLocaleString()}</p></div>
+              </div>
+            
+          ))}</div>
       </div>
     </div>
   )
