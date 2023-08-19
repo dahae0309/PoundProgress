@@ -30,7 +30,7 @@ POUND PROGRESS is a user-friendly application designed to help individuals track
 
 ### Getting started
 
-To get started with the Weight Tracker Fitness App, follow these steps:
+To get started with the PoundProgress App, follow these steps:
 
 1. Installation: Clone the repository to your local machine.
 ```bash
