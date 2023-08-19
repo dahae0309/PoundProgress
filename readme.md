@@ -23,7 +23,8 @@ POUND PROGRESS is a user-friendly application designed to help individuals track
 - **Secure and Private:** Rest assured that your weight data is kept private and secure.
 
 
-## <img src="/src/assets/image2.png">
+## <img src="/src/assets/image14.png">
+## <img src="/src/assets/image15.png">
 <!-- ## <img src="/src/assets/image3.png"> -->
 
 
