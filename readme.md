@@ -11,7 +11,7 @@
 POUND PROGRESS is a user-friendly application designed to help individuals track and monitor their weight loss or weight gain progress. This app provides a convenient way to record and visualize weight measurements, set goals, and track progress over time. Whether you're on a fitness journey, managing weight for health reasons, or simply curious about your progress, this app has got you covered!
 </div>
 
-## <img src="/src/assets/welcome_img.png">
+## <img src="/src/assets/image8.png">
 
 ### Features
 
