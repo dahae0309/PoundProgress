@@ -23,6 +23,7 @@ body {
     /* max-height: 100px;  */
   /* min-height: 100%; */
   overflow-x:hidden;
+  margin:0
 }
 
 /* SHARED FILE//////////////////////////////// */
