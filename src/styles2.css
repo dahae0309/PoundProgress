@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Neucha&family=Poppins:wght@300&display=swap');
 
-html {
+/* html {
   height: 100%;
   width: 100%;
   overflow-x:hidden;
-}
+} */
 
 body {
   display: flex;
@@ -30,6 +30,7 @@ body {
 .shared{
   position: absolute;
   top: 0;
+  width: 100%;
   min-height: 100%;
   max-width: 100%;
   /* left: auto;
@@ -167,7 +168,7 @@ body {
   flex-direction: column;
   padding-bottom: 70px;
   background-color: rgb(20, 20, 32);
-  width: 100%;
+  width: 100vw;
 }
 
 .welcome-container {
