@@ -68,14 +68,16 @@ const Welcome = () => {
         {/* <img src='../assets/image9.png' className="image9" alt="image" /> */}
         <h3>BMI Calculation</h3>
         <h2>Check if your current weight is within healthy BMI range.</h2>
-        <img src='../assets/image5.png' className="image5" alt="image" />
-        {/* <img src='../assets/image16.png' className="image16" alt="image" /> */}
+        {/* <img src='../assets/image5.png' className="image5" alt="image" /> */}
+        <img src='../assets/image16.png' className="image16" alt="image" />
         <h3>Goal Setting</h3>
         <h2>Set your target weight and track your progress towards achieving it.</h2>
-        <img src='../assets/image6.png' className="image6" alt="image" />
+        {/* <img src='../assets/image6.png' className="image6" alt="image" /> */}
+        <img src='../assets/image10.png' className="image10" alt="image" />
         <h3>Visualize Progress</h3>
         <h2>View intuitive charts and graphs to visualize your weight trends over time.</h2>
-        <img src='../assets/image7.png' className="image7" alt="image" />
+        {/* <img src='../assets/image7.png' className="image7" alt="image" /> */}
+        <img src='../assets/image12.png' className="image12" alt="image" />
         <div className='start-journey'><Link to="/signup" element={ <Signup />}>Start your journey today!</Link></div>
       </div>
     </div>

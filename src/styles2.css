@@ -241,6 +241,24 @@ max-width: 60vw;
   margin-top: 3%;
 }
 
+.image16{
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,.2);
+  margin-bottom: 6%;
+  margin-top: 3%;
+}
+
+.image10{
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,.2);
+  margin-bottom: 6%;
+  margin-top: 3%;
+}
+
+.image12{
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,.2);
+  margin-bottom: 6%;
+  margin-top: 3%;
+}
+
 .image7 {
   width: 50vw;
   height: 40vh;
