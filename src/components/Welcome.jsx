@@ -13,6 +13,13 @@ import image4 from '../assets/image4.png'
 import image5 from '../assets/image5.png'
 import image6 from '../assets/image6.png'
 import image7 from '../assets/image7.png'
+import image9 from '../assets/image9.png'
+import image10 from '../assets/image10.png'
+import image11 from '../assets/image11.png'
+import image12 from '../assets/image12.png'
+import image16 from '../assets/image16.png'
+import image14 from '../assets/image14.png'
+import image15 from '../assets/image15.png'
 
 const Welcome = () => {
 
@@ -59,9 +66,11 @@ const Welcome = () => {
         <h3>Track Weight</h3>
         <h2>Easily log your weight measurements and keep a record of your progress.</h2>
         <img src='../assets/image4.png' className="image4" alt="image" />
+        {/* <img src='../assets/image9.png' className="image9" alt="image" /> */}
         <h3>BMI Calculation</h3>
         <h2>Check if your current weight is within healthy BMI range.</h2>
         <img src='../assets/image5.png' className="image5" alt="image" />
+        {/* <img src='../assets/image16.png' className="image16" alt="image" /> */}
         <h3>Goal Setting</h3>
         <h2>Set your target weight and track your progress towards achieving it.</h2>
         <img src='../assets/image6.png' className="image6" alt="image" />

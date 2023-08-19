@@ -756,7 +756,7 @@ max-width: 60vw;
 .main-function h3{
 margin:10px;
 font-size: 3.2vh;
-text-shadow: pink 1px 0 10px;
+/* text-shadow: pink 1px 0 10px; */
 align-items: center;
 justify-content: center;
 text-align: center;
@@ -771,6 +771,22 @@ max-width: 60vw;
   box-shadow: 2px 2px 4px 0 rgba(0,0,0,.2);
   margin-bottom: 6%;
 }
+
+/* .main-function img {
+  width: 30vh;
+  height: auto;
+  max-width: 40vw;
+  box-shadow: 2px 2px 4px 0 rgba(1, 1, 1, 0.2);
+  margin-bottom: 6%;
+} */
+
+/* .image9 {
+  width: 100vh;
+  height: auto;
+  max-width: 40vw;
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,.2);
+  margin-bottom: 6%;
+} */
 
 .image7 {
   width: 50vw;
