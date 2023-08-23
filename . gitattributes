@@ -2,3 +2,6 @@
 *.js linguist-vendored=false
 *.js linguist-detectable=true
 *.js linguist-language=JavaScript
+
+coverage/* linguist-vendored=true
+node_modules/* linguist-vendored=true
