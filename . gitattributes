@@ -1,8 +1,6 @@
-
-coverage/* linguist-vendored=true
-node_modules/* linguist-vendored=true
-server/* linguist-vendored=true
 src/* linguist-vendored=true
+coverage/* linguist-vendored=true
+
 
 *.css linguist-vendored
 *.js linguist-vendored=false
