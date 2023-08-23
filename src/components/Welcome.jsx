@@ -19,6 +19,8 @@ import image12 from '../assets/image12.png'
 import image16 from '../assets/image16.png'
 import image14 from '../assets/image14.png'
 import image15 from '../assets/image15.png'
+import image17 from '../assets/image17.png'
+import image18 from '../assets/image18.png'
 
 const Welcome = () => {
 
@@ -64,8 +66,8 @@ const Welcome = () => {
           <br></br> */}
         <h3>Track Weight</h3>
         <h2>Easily log your weight measurements and keep a record of your progress.</h2>
-        <img src='../assets/image4.png' className="image4" alt="image" />
-        {/* <img src='../assets/image9.png' className="image9" alt="image" /> */}
+        {/* <img src='../assets/image4.png' className="image4" alt="image" /> */}
+        <img src='../assets/image18.png' className="image18" alt="image" />
         <h3>BMI Calculation</h3>
         <h2>Check if your current weight is within healthy BMI range.</h2>
         {/* <img src='../assets/image5.png' className="image5" alt="image" /> */}
