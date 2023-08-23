@@ -1,1 +1,2 @@
 *.rb linguist-language=js
+docs/formatter.rb linguist-documentation=false
