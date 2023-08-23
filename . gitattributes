@@ -1,7 +1,10 @@
+
+coverage/* linguist-vendored=true
+node_modules/* linguist-vendored=true
+server/* linguist-vendored=true
+src/* linguist-vendored=true
+
 *.css linguist-vendored
 *.js linguist-vendored=false
 *.js linguist-detectable=true
 *.js linguist-language=JavaScript
-
-coverage/* linguist-vendored=true
-node_modules/* linguist-vendored=true
