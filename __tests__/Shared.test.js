@@ -67,3 +67,37 @@ describe('shared page test', () => {
 //     // expect(privacy).toHaveTextContent("Privacy")
 //   }
 //   });
+
+describe('not signed in', () => {
+
+  //need to create universal createServer function
+  createServer([
+    {
+      path: '/api/user',
+      res: () => {
+        return {user:null}
+       }
+    }
+  ])
+  test('log in and sign up are visible', async () => { });
+
+  test('sign out is not visible', async () => { });
+})
+
+
+
+describe('signed in', () => {
+
+  createServer([
+    {
+      path: '/api/user',
+      res: () => {
+        return { user: {id:3, email:'asdf@test.com'} }
+       }
+    }
+  ])
+
+test('sign in and sign up are not visible', async () => { });
+
+test('sign out is visible', async () => { });
+})

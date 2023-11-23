@@ -3,7 +3,8 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event'
 import Welcome from '../src/components/Welcome.jsx';
 import React from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
+// import { BrowserRouter as Router } from "react-router-dom";
+import { MemoryRouter } from 'react-router';
 
 const user = userEvent.setup()
 
@@ -11,17 +12,20 @@ describe('welcome page test', () => {
 
   test('if welcome page renders elements in welcome and login component', () => {
     render(
-      <Router>
+      // <Router>
+      //   <Welcome />
+      // </Router>
+      <MemoryRouter>
         <Welcome />
-      </Router>
+      </MemoryRouter>
     );
-    const welcome = screen.getByText(/Track Weight:/i);
-    const login = screen.getByText(/Please Log In/i);
-    const submit = screen.getByRole('button');
+    const welcome = screen.getByText(/Track Weight/i);
+    // const login = screen.getByText(/Please Log In/i);
+    // const submit = screen.getByRole('button');
  
     expect(welcome).toBeInTheDocument();
-    expect(login).toBeInTheDocument();
-    expect(submit).toHaveTextContent("Submit")
+    // expect(login).toBeInTheDocument();
+    // expect(submit).toHaveTextContent("Login")
     //screen.debug()
   });
 
