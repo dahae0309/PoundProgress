@@ -2,3 +2,7 @@
 misc
 style2.css
 __tests__
+sampletest.test.js
+Shared.test.js
+Welcome.test.js
+coverage
