@@ -25,8 +25,8 @@ export const Login = (oauthInfo) => {
   })
 
   const loginUser = ()=> {
-    // fetch('/login', {
-    fetch('https://pound-progress-cu407eiyt-das-kangs-projects.vercel.app/login', {
+    fetch('/login', {
+    //fetch('https://pound-progress-cu407eiyt-das-kangs-projects.vercel.app/login', {
     method: 'POST',
     //  mode:'no-cors',
     headers: { 'Content-Type': 'application/json' },
