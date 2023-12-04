@@ -26,7 +26,8 @@ app.get('/', (req, res) => {
 });
 
 //regular LOGIN/SIGNUP ////////////////
-app.post('/login', loginController.verification,
+// app.post('/login', loginController.verification,
+app.post('https://pound-progress-cu407eiyt-das-kangs-projects.vercel.app/login', loginController.verification,
   (req, res) => {
     console.log('hi')
     return res.status(200).json(res.locals)
