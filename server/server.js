@@ -9,7 +9,7 @@ const userController = require('./controller/userController');
 const loginController = require('./controller/loginController');
 const signupController = require('./controller/signupController');
 const goalController = require('./controller/goalController');
-const infoController = require('./controller/infoController');
+//const infoController = require('./controller/infoController');
 
 const authRouter = require('../src/misc/routes/oauth')
 
