@@ -26,7 +26,6 @@ export const Login = (oauthInfo) => {
 
   const loginUser = ()=> {
     fetch('/login', {
-    //fetch('https://pound-progress-cu407eiyt-das-kangs-projects.vercel.app/login', {
     method: 'POST',
     //  mode:'no-cors',
     headers: { 'Content-Type': 'application/json' },
@@ -34,7 +33,7 @@ export const Login = (oauthInfo) => {
     })
     .then(data => data.json())
     .then(data => {
-      //console.log("login data:", data);
+      console.log("login data:", data);
       if (data.status === "verified") {
         //console.log('data.userInfo', data.id);
         setUserId(data.id)
