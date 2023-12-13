@@ -24,7 +24,8 @@ export const Login = (oauthInfo) => {
      }
   })
 
-  const loginUser = ()=> {
+  const loginUser = () => {
+    console.log('here?')
     fetch('/login', {
     method: 'POST',
     //  mode:'no-cors',
